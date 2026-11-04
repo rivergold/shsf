@@ -23,10 +23,10 @@ def build():
     page = page.replace('<body>', '<body>'+extra+banner)
     scripts = '<script type="application/json" id="demo-data">'+payload+'</script><script>'+runtime+'</script><script>'+app+'</script>'
     page = page.replace('</body>', scripts+'</body>')
-    destination = ROOT / 'docs/demo/index.html'
+    destination = ROOT / 'demo/index.html'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(page)
-    print('Built docs/demo/index.html (offline; no backend required)')
+    print('Built demo/index.html (offline; no backend required)')
 
 
 if __name__ == '__main__':
