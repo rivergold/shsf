@@ -17,6 +17,8 @@
   "design/previews/seed-selection-live.png",
   "design/previews/seed-selection.html",
   "design/previews/shsf-brand-subtitle.png",
+  "docs/demo/README.md",
+  "docs/demo/index.html",
   "pyproject.toml",
   "scripts/build_demo.py",
   "scripts/local_postgres.py",

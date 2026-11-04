@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="shsf-token" content="offline-demo"><title>SHSF · 交互演示</title><style>:root{color-scheme:light;--bg:#f7f6f2;--panel:#fffefa;--ink:#262d2a;--muted:#7a807b;--line:#e3e5dc;--green:#49634f;--soft:#edf1e9;--input:#fffefa;--shadow:0 5px 24px #26312b04}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}body.dark{color-scheme:dark;--bg:#141b24;--panel:#1b2530;--ink:#e8e9e3;--muted:#9ca8ae;--line:#35414b;--green:#a7bda4;--soft:#2a3836;--input:#18212b}button,input,select{font:inherit}button{cursor:pointer;color:inherit;border:0;border-radius:6px;padding:9px 15px;background:transparent}button:hover{filter:brightness(.94)}button:disabled{opacity:.42;cursor:default}input,select{color:var(--ink);background:var(--input);border:1px solid var(--line);border-radius:6px;padding:10px 12px}input{width:100%}input:focus,select:focus,button:focus-visible{outline:2px solid var(--green);outline-offset:2px}a{color:var(--green)}header{height:82px;max-width:1280px;margin:auto;display:flex;align-items:center;padding:0 40px;border-bottom:1px solid var(--line);gap:58px}.brand{text-decoration:none;color:var(--ink);font:32px Georgia,serif;letter-spacing:-1.4px}nav{display:flex;gap:30px;font-size:13px}nav span{color:var(--muted)}nav strong{font-weight:500;color:var(--green)}small{font-size:10px;margin-left:5px}#theme{margin-left:auto;font-size:22px}main{max-width:1280px;margin:auto;padding:49px 40px 25px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:600}h1{font-family:Georgia,"Songti SC",serif;font-size:36px;font-weight:500;letter-spacing:1px;margin:10px 0 12px}h1 span{color:var(--green);font-size:28px;margin-left:15px}.intro{color:var(--muted);margin:0 0 32px}h2{font-size:16px;font-weight:600;margin:0}.workspace{display:grid;grid-template-columns:350px minmax(0,1fr);gap:24px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:23px}.panel-title{display:flex;justify-content:space-between;align-items:center;gap:12px}.muted,.hint{color:var(--muted);font-size:12px}.hint{line-height:1.8}.badge{font-size:11px;background:var(--soft);color:var(--green);padding:3px 8px;border-radius:20px;margin-left:7px}.outline{border:1px solid var(--line);background:var(--panel)}.primary{background:var(--green);color:var(--bg);font-weight:500}.wide{width:100%;margin:4px 0 14px}.quiet{color:var(--muted)}.selected{position:sticky;top:20px}.seed{padding:15px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px}.seed-content{min-width:0;flex:1}.seed-title{font-family:Georgia,serif;font-size:15px;line-height:1.45;margin-bottom:5px}.seed button{padding:0 4px;font-size:20px;color:var(--muted)}.seed .hint{margin:5px 0}.tag{display:inline-block;font-size:10px;color:var(--green);background:var(--soft);padding:1px 6px;border-radius:3px;margin:4px 4px 0 0}.tag.pending{color:#a47731;background:#bc943515}.selection-bottom{padding-top:12px}#selected-list{max-height:450px;overflow:auto}.empty{text-align:center;padding:38px 14px;color:var(--muted);font-size:13px}.empty .symbol{font:32px Georgia,serif;margin-bottom:12px}.modes{display:flex;gap:4px;margin-top:19px}.modes button{font-size:12px;padding:6px 11px;color:var(--muted)}.modes .active{background:var(--soft);color:var(--green)}.search-bar{display:flex;gap:8px;margin-top:12px}.search-bar input{flex:1;min-width:0}.results-toolbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0 9px;border-bottom:1px solid var(--line);font-size:12px;gap:10px}.results-toolbar select{padding:3px 6px;margin-left:5px;border:0}.paper{display:flex;align-items:flex-start;gap:12px;padding:22px 0;border-bottom:1px solid var(--line)}.paper-content{min-width:0;flex:1}.check{width:23px;height:23px;flex-shrink:0;border:1px solid var(--line);border-radius:5px;padding:0;margin-top:3px}.check.chosen{background:var(--green);color:var(--bg);border-color:var(--green)}.paper h3{font-family:Georgia,serif;font-weight:500;font-size:19px;line-height:1.35;margin:0 0 7px}.authors{font-size:11px;color:var(--muted);margin:0}.abstract{font-size:12px;line-height:1.8;color:var(--muted);margin:10px 0 0}.abstract:not(.expanded){display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.details{font-size:11px;color:var(--green);padding:5px 0 0}.pagination{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;font-size:12px}.pagination button{padding:6px 11px}footer{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--line);margin-top:30px;padding:24px 0 8px}footer strong{font-size:14px;font-weight:500}footer p{font-size:12px;color:var(--muted);margin:4px 0}.footnote{text-align:center;font-size:11px;color:var(--muted);margin:24px 0 0}#notice:not(:empty){background:var(--soft);border:1px solid var(--line);padding:10px 15px;border-radius:6px;margin-bottom:18px;font-size:13px}dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:28px;width:min(680px,92vw);max-height:88vh;box-shadow:0 20px 90px #0003}dialog::backdrop{background:#14211f70;backdrop-filter:blur(3px)}.dialog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.dialog-head .close{font-size:25px;padding:0 8px}.dialog-actions{display:flex;align-items:center;justify-content:flex-end;gap:16px;padding-top:22px}dialog label{display:block;font-size:12px;margin:14px 0 5px}dialog label input,dialog label select{display:block;width:100%;margin-top:5px}#zotero-message{font-size:13px;color:var(--green)}.library-bar{display:flex;align-items:center;justify-content:space-between}#zotero-items{max-height:350px;overflow:auto}.zitem{display:flex;gap:12px;border-bottom:1px solid var(--line);padding:12px 0}.zitem input{width:auto;accent-color:var(--green)}.zitem label{margin:0;font-size:14px;flex:1}.zitem .hint{display:block}.zitem input{align-self:flex-start;margin-top:7px}[hidden]{display:none!important}@media(max-width:900px){header{padding:0 22px;gap:30px}main{padding:30px 22px}.workspace{grid-template-columns:290px minmax(0,1fr);gap:16px}.panel{padding:17px}nav{gap:12px}nav small{display:none}}@media(max-width:700px){header{height:68px;gap:24px}nav{font-size:11px}main{padding:28px 16px}h1{font-size:28px}.intro{font-size:12px}.workspace{grid-template-columns:1fr}.selected{position:static}#selected-list{max-height:260px}.panel{padding:18px}footer{align-items:flex-start}footer .primary{white-space:nowrap;padding:10px;font-size:12px}.paper h3{font-size:17px}.results-toolbar{font-size:11px}.brand{font-size:28px}}
+nav button{font-size:13px;padding:8px 0;color:var(--muted)}nav button.nav-active{color:var(--green);font-weight:600;border-bottom:1px solid var(--green);border-radius:0}.feed-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:26px 0}.feed-buttons{display:grid;grid-template-columns:auto auto;align-items:center;gap:10px}.feed-sort-bar{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;margin:16px 0 20px}.feed-sort{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}.feed-sort select{padding:8px 10px}.feed-grid{display:grid;grid-template-columns:290px minmax(0,1fr);gap:28px;align-items:start}.feed-about{position:sticky;top:20px;font-size:12px;color:var(--muted);line-height:1.9}.feed-about h2{margin-top:14px;color:var(--ink)}.feed-card{padding:28px;margin-bottom:18px;background:var(--panel);border:1px solid var(--line);border-radius:10px}.feed-card h2{font:23px/1.35 Georgia,serif;margin:12px 0}.feed-card .abstract{font-size:13px}.feed-card .abstract:not(.expanded){-webkit-line-clamp:3}.feed-card .card-top{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted)}.feed-card .reasons{margin:20px 0 0;padding:13px 16px;background:var(--soft);border-radius:6px;font-size:12px;color:var(--green)}.feed-card .reasons p{margin:5px 0}.feed-card .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.feed-card .actions button{font-size:12px;border:1px solid var(--line);background:var(--panel)}.feed-card .actions button.active{background:var(--soft);color:var(--green);border-color:var(--green)}.feed-card .paper-link{display:inline-block;margin-top:9px;font-size:12px;text-decoration:none}.feed-card.read{opacity:.7}#feed-notice:not(:empty){padding:12px 16px;background:var(--soft);border:1px solid var(--line);border-radius:6px;margin-bottom:22px;font-size:13px}#feed-coverage{padding-top:12px;border-top:1px solid var(--line)}@media(max-width:700px){.feed-grid{grid-template-columns:1fr}.feed-about{position:static}.feed-card{padding:20px}.feed-card h2{font-size:20px}.feed-top{align-items:flex-start;flex-direction:column}.feed-buttons{width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}nav button{font-size:12px}}
+
+.brand{display:inline-flex;flex-direction:column;align-items:flex-start;gap:3px;flex-shrink:0}.brand-name{line-height:1.05}.brand-tagline{font:10px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.65px;color:var(--muted);white-space:nowrap}@media(max-width:700px){header{height:auto;min-height:82px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 20px;padding:13px 16px}header .brand{grid-column:1;grid-row:1}header #theme{grid-column:2;grid-row:1;margin-left:0}header nav{grid-column:1/-1;grid-row:2;justify-content:center;gap:30px}.brand-tagline{font-size:9px;letter-spacing:.5px}}
+.agent-layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;align-items:start}.agent-layout .panel{min-width:0}.agent-modes{display:flex;flex-direction:column;gap:16px;margin:22px 0}.agent-modes label{padding:14px;border:1px solid var(--line);border-radius:7px;cursor:pointer}.agent-modes input{width:auto;accent-color:var(--green);margin-right:7px}.agent-modes .hint{display:block;margin-top:5px}.agent-label{display:block;font-size:12px;margin:16px 0 8px}.agent-label select{display:block;width:100%;margin-top:6px}.agent-buttons{display:flex;gap:9px;align-items:flex-end;flex-wrap:wrap;margin:16px 0}.agent-buttons .agent-label{margin:0}.agent-test-panel{grid-column:1/-1}#agent-api-info{display:grid;grid-template-columns:115px minmax(0,1fr);font-size:13px;gap:12px;margin:24px 0}#agent-api-info dt{color:var(--muted)}#agent-api-info dd{margin:0;overflow-wrap:anywhere}.agent-example{margin:20px 0 0;font-size:12px;color:var(--muted)}.agent-example pre{padding:14px;background:var(--soft);overflow:auto;line-height:1.8;color:var(--ink);border-radius:6px}#agent-notice:not(:empty){background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:13px}#agent-auth-link{display:block;margin:14px 0;color:var(--green)}#agent-test-result{font-size:13px;overflow-wrap:anywhere}@media(max-width:800px){.agent-layout{grid-template-columns:1fr}.agent-test-panel{grid-column:auto}}
+.analysis-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:16px}.analysis-actions button{font-size:12px}.analysis-actions a{font-size:12px}.inline-analysis{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.analysis-status{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px;margin:12px 0}.analysis-status progress{width:160px;accent-color:var(--green)}.analysis-error{font-size:13px;color:#ad6447;padding:12px;background:#ad64470b;border-radius:5px}.report-basis{display:inline-block;background:var(--soft);color:var(--green);padding:4px 9px;font-size:11px;border-radius:4px;margin:12px 0}.analysis-report h3{font:24px/1.45 Georgia,"Songti SC",serif;margin:10px 0}.report-section{margin:26px 0}.report-section h4{font-size:16px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:16px}.report-claim{margin:15px 0}.report-claim p{font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;margin:6px 0;line-height:1.9}.claim-kind{font-size:10px;color:var(--green);border:1px solid var(--line);border-radius:3px;padding:2px 6px}.claim-kind.inference{color:#967141}.claim-kind.unknown{color:var(--muted)}.report-evidence{font-size:12px;color:var(--muted);margin:8px 0}.report-evidence summary{cursor:pointer;color:var(--green)}.report-evidence a{display:block;margin-top:10px}.report-evidence blockquote{border-left:2px solid var(--line);padding:8px 12px;margin:8px 0;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--soft)}.paper-source,.paper-reading{margin:24px 0}.paper-source .abstract{line-height:1.9;font-size:14px}.paper-source>a{font-size:12px}.paper-reading{max-width:950px}.paper-reading>.panel-title a{font-size:12px}#paper-title{font-size:32px;line-height:1.35;overflow-wrap:anywhere}#paper-back{padding-left:0;margin-bottom:18px}@media(max-width:700px){#paper-title{font-size:25px}.analysis-report h3{font-size:21px}.report-claim p{font-size:13px}.paper-reading,.paper-source{padding:18px}}
+
+@media(max-width:700px){.feed-sort-bar{margin:14px 0 18px}.feed-sort select{max-width:100%}}
+
+.agent-remote-auth{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:7px;background:var(--soft)}.agent-remote-auth h3{margin:0;font-size:14px}.agent-remote-auth input{display:block;width:100%;margin-top:6px}.agent-remote-auth .agent-label{margin:12px 0}
+
+.abstract-toolbar{display:flex;align-items:center;gap:12px;margin:14px 0 8px}.abstract-languages{display:inline-flex;gap:2px;padding:3px;background:var(--soft);border-radius:6px}.abstract-languages button{padding:4px 10px;font-size:12px;color:var(--muted)}.abstract-languages button.active{background:var(--panel);color:var(--green);font-weight:600}.abstract-toolbar+.abstract{margin-top:8px}
+
+#readings-view{max-width:1000px;margin:auto}#readings-active-panel{margin-bottom:26px}.readings-history{margin-bottom:20px}.readings-tools{display:flex;align-items:center;gap:12px;margin:20px 0 12px}.readings-tools>input{flex:1;min-width:150px}.readings-tools label{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:13px}.readings-tools label input{width:auto;accent-color:var(--green)}.reading-row{display:flex;align-items:center;gap:24px;padding:20px 0;border-top:1px solid var(--line)}#readings-active .reading-row:first-child{border-top:0}.reading-row-body{min-width:0;flex:1}.reading-title{font:18px/1.5 Georgia,"Songti SC",serif;text-decoration:none;color:var(--ink);overflow-wrap:anywhere}.reading-title:hover{color:var(--green);text-decoration:underline}.reading-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:9px;font-size:12px;color:var(--muted)}.reading-state{color:var(--green)}.reading-state.failed,.reading-failure{color:#ad6447}.reading-failure{font-size:12px;margin:6px 0;overflow-wrap:anywhere}.reading-bookmark{display:inline-flex;align-items:center;justify-content:center;padding:5px;border-radius:5px;color:var(--muted)}.reading-bookmark svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}.reading-bookmark.selected{color:var(--green)}.reading-bookmark.selected svg{fill:currentColor}.reading-bookmark:hover{background:var(--soft);color:var(--green)}.reading-row>button{white-space:nowrap;font-size:12px}.reading-row progress{width:min(100%,360px);height:6px;accent-color:var(--green)}#readings-notice:not(:empty){padding:12px 0;color:var(--muted)}#readings-notice button{margin-left:12px}@media(max-width:700px){.readings-tools{flex-wrap:wrap}.readings-tools>input{flex-basis:100%}.reading-row{gap:12px}.reading-title{font-size:16px}.reading-row>button{padding:7px 9px}header nav{gap:20px}}
+</style></head>
+<body><style>.demo-banner{padding:12px 24px;background:var(--soft);color:var(--green);display:flex;justify-content:center;align-items:center;gap:8px 18px;flex-wrap:wrap;font-size:12px}.demo-banner small:empty{display:none}.demo-banner small{flex-basis:100%;text-align:center}input:disabled{opacity:.6}</style><aside class="demo-banner" aria-label="演示说明"><strong>SHSF 交互演示</strong><span>示例论文、推荐分数与报告均为模拟数据 · 操作仅在本页内存中生效</span><a href="https://github.com/rivergold/shsf" target="_blank" rel="noreferrer">查看源码 ↗</a><small id="demo-message" role="status"></small></aside><header><a class="brand" href="#feed" aria-label="SHSF · Stay Hungry, Stay Foolish."><span class="brand-name">✦ SHSF</span><span class="brand-tagline">Stay Hungry, Stay Foolish.</span></a><nav><button id="nav-feed" type="button" class="nav-active">每日推荐</button><button id="nav-readings" type="button">精读记录</button><button id="nav-seeds" type="button">兴趣论文</button><button id="nav-agent" type="button">Agent 设置</button></nav><button id="theme" class="quiet" aria-label="切换深浅主题">◐</button></header>
+<main><section id="seed-view" hidden><h1>构建你的兴趣模型<span>✦</span></h1><p class="intro">选择那些你希望在发表当天就读到的论文。让研究发现，从你的兴趣出发。</p>
+<div id="notice" role="status" aria-live="polite"></div><div class="workspace">
+<section class="selected panel"><div class="panel-title"><h2>你的兴趣论文 <span id="count" class="badge">0</span></h2><span class="muted">自动保存</span></div><p class="hint">从右侧搜索，或导入 Zotero 中的收藏。</p><button id="zotero-open" class="wide outline">↗ 从 Zotero 导入</button><div id="selected-list"></div><div class="selection-bottom"><p id="selection-stats" class="muted"></p><p class="hint">建议选择 20–40 篇，覆盖你真正关心的方向。最多 100 篇。</p></div></section>
+<section class="search panel"><div class="panel-title"><h2>发现并添加论文</h2><span class="muted">本地 arXiv 文献库</span></div><form id="search-form"><div class="modes" role="group" aria-label="检索范围"><button type="button" data-mode="all" class="active">标题与摘要</button><button type="button" data-mode="author">作者</button><button type="button" data-mode="identifier">arXiv / DOI</button></div><div class="search-bar"><input id="query" maxlength="300" aria-label="搜索论文" placeholder="搜索关键词，例如 diffusion policy…"><button type="submit" class="primary">搜索</button></div></form><div class="results-toolbar"><span id="results-info" class="muted">正在读取文献库…</span><label>排序 <select id="sort"><option value="relevance">相关性</option><option value="recent">发表时间</option></select></label></div><div id="results" aria-live="polite"></div><div class="pagination"><button id="prev" class="outline">← 上一页</button><span id="page-info"></span><button id="next" class="outline">下一页 →</button></div></section></div>
+<footer><div><strong id="footer-title">从几篇启发你的论文开始</strong><p id="footer-sub">种子草稿保存在本机数据库中。</p></div><button id="review" class="primary" disabled>确认兴趣论文 →</button></footer><p class="footnote">SPECTER2 相似度推荐基线已接入。反馈先记录，不训练个人模型。</p></section><section id="feed-view">
+<h1>值得你读的研究<span>✦</span></h1><p class="intro">从你的兴趣论文出发，发现近期进展与值得重读的历史工作。</p>
+<div id="feed-notice" role="status" aria-live="polite"></div>
+<div class="feed-top"><div><h2 id="feed-day">每日推荐</h2><p id="feed-stats" class="hint">正在读取推荐状态…</p></div><div class="feed-buttons"><button id="feed-refresh" class="outline">更新状态</button><button id="feed-generate" class="primary" disabled>生成今日推荐</button></div></div>
+<p id="feed-release" class="hint"></p><p id="feed-update" class="hint" role="status"></p>
+<div class="feed-sort-bar"><label class="feed-sort" for="feed-sort">排序<select id="feed-sort"><option value="similarity">相似度</option><option value="submitted">日期</option></select></label></div>
+<div class="feed-grid"><aside class="panel feed-about"><div class="eyebrow">HOW YOUR FEED WORKS</div><h2>从相近的研究中发现</h2><p>根据论文与最相近的 3 篇种子的平均余弦相似度排序，再减少内容重复。</p><p>每批最多 20 篇，优先安排 6 篇来自最近一个 arXiv 发布批次的新论文，不足时由其他相关研究补齐。已读、已反馈论文，以及近 30 天推荐过的论文，会在新批次中排除。</p><p class="hint">相似度不是喜欢概率，也不代表论文质量。每天自动更新后保存推荐，新增向量在后续新批次中参与推荐。</p><button id="feed-edit-seeds" class="wide outline">调整兴趣论文 →</button><div id="feed-coverage" class="hint"></div></aside><div id="feed-cards" aria-live="polite"></div></div>
+<p class="footnote">当前使用固定 SPECTER2 编码器，不训练个人偏好模型。解读按需生成，使用 Agent 设置中所选模型和通道。</p></section><section id="readings-view" hidden>
+<div class="eyebrow">READING LIBRARY</div><h1>精读记录<span>✦</span></h1><p class="intro">找回正在精读的论文，回看已保存的报告。</p>
+<div id="readings-notice" role="status" aria-live="polite"></div>
+<section id="readings-active-panel" class="panel" hidden><h2>进行中 <span id="readings-active-count" class="badge"></span></h2><div id="readings-active"></div></section>
+<section class="panel readings-history"><h2>历史精读</h2><div class="readings-tools"><input id="readings-query" maxlength="300" aria-label="搜索精读论文标题" placeholder="搜索论文标题…"><select id="readings-status" aria-label="精读状态"><option value="all">全部状态</option><option value="succeeded">已完成</option><option value="failed">失败</option></select><label><input id="readings-favorites" type="checkbox">仅看收藏</label></div><p class="hint">最近精读优先 · 每篇论文一条记录</p><div id="readings-list"></div><div class="pagination"><button id="readings-prev" class="outline">← 上一页</button><span id="readings-page"></span><button id="readings-next" class="outline">下一页 →</button></div></section>
+</section><section id="agent-view" hidden>
+<div class="eyebrow">RESEARCH ASSISTANT</div><h1>Agent 设置<span>✦</span></h1><p class="intro">为推荐解读和单篇精读选择模型通道。每次请求只使用你明确选择的通道。</p>
+<div id="agent-notice" role="status" aria-live="polite"></div>
+<div class="agent-layout"><section class="panel"><h2>选择模型通道</h2><div class="agent-modes"><label><input type="radio" name="agent-mode" value="api" checked> API 配置 <span class="hint">从本机 .env 读取地址、密钥和模型</span></label><label><input type="radio" name="agent-mode" value="chatgpt"> ChatGPT 套餐 <span class="hint">通过官方登录授权，使用账户可用模型</span></label></div><button id="agent-save" class="primary">保存当前通道</button><p id="agent-current" class="hint"></p></section>
+<section class="panel"><h2>配置状态</h2><div id="agent-api"><p class="hint">编辑项目根目录的 .env 后，点击重新读取。密钥不会显示在网页上。</p><dl id="agent-api-info"></dl><button id="agent-reload" class="outline">重新读取 .env</button><details class="agent-example"><summary>查看 .env 配置示例</summary><pre>SHSF_AGENT_MODE=api
+SHSF_LLM_PROVIDER=openai_compatible
+SHSF_LLM_BASE_URL=https://api.openai.com/v1
+SHSF_LLM_API_KEY=你的密钥
+SHSF_LLM_PROTOCOL=chat_completions
+SHSF_LLM_MODEL=你的模型名称
+# 可分别指定两种任务的模型
+SHSF_AGENT_EXPLAIN_MODEL=
+SHSF_AGENT_READ_MODEL=</pre></details></div>
+<div id="agent-chatgpt" hidden><p id="agent-auth-status" class="hint"></p><label class="agent-label">ChatGPT 账户<select id="agent-profiles"><option value="">选择账户</option></select></label><div class="agent-buttons"><button id="agent-login" class="primary">Continue with ChatGPT</button><button id="agent-relogin" class="outline">重新登录所选账户</button><button id="agent-logout" class="outline">退出所选账户</button></div><a id="agent-auth-link" class="paper-link" target="_blank" rel="noreferrer" hidden>前往 ChatGPT 官方授权页面 ↗</a><form id="agent-remote-auth" class="agent-remote-auth" hidden><h3>在其他电脑上完成登录</h3><p class="hint">如果授权后跳到 127.0.0.1，页面无法打开，请复制该页面地址栏的完整地址，返回这里粘贴并完成登录。无需打开回调页面，请在发起登录后 10 分钟内提交。</p><label class="agent-label" for="agent-callback-url">授权返回地址<input id="agent-callback-url" type="password" autocomplete="off" spellcheck="false" maxlength="8192" placeholder="粘贴 http://127.0.0.1:…/auth/callback?…" required></label><button id="agent-complete-login" class="primary" type="submit">完成登录</button><p id="agent-callback-status" class="hint" role="status" aria-live="polite"></p></form><p class="hint">首次登录会注册 SHSF 连接，并请求使用套餐额度。账户及工作区能否授权，以官方页面和实际请求结果为准。仅完成身份登录不代表允许使用套餐。</p><button id="agent-models" class="outline">读取账户可用模型</button><label class="agent-label">推荐解读模型<select id="agent-explain-model"><option value="">请先读取模型列表</option></select></label><label class="agent-label">单篇精读模型<select id="agent-read-model"><option value="">请先读取模型列表</option></select></label><p id="agent-model-readiness" class="hint" role="status"></p><button id="agent-save-models" class="primary" type="button">保存模型选择</button><p class="hint">凭据保存在本机受保护文件中。退出时会尝试撤销远程会话。<a href="https://chatgpt.com/#settings" target="_blank" rel="noreferrer">在 ChatGPT 管理连接与用量 ↗</a></p></div>
+</section><section class="panel agent-test-panel"><div><h2>连接测试</h2><p class="hint">仅发送固定短文本，不包含论文、种子或研究画像。测试会消耗所选通道的少量用量；不会自动切换到其他计费通道。</p></div><div class="agent-buttons"><label class="agent-label">测试任务<select id="agent-test-task"><option value="explain">推荐解读</option><option value="read">单篇精读</option></select></label><button id="agent-test" class="primary">发送连接测试</button></div><p id="agent-test-result" role="status"></p></section></div><p class="footnote">配置后可从每日推荐卡片生成推荐解读，或进入论文详情生成精读报告。</p></section><section id="paper-view" hidden>
+<button id="paper-back" class="quiet">← 返回每日推荐</button><div class="eyebrow">PAPER READING</div><h1 id="paper-title">论文详情</h1><p id="paper-meta" class="intro"></p><div id="paper-error" role="status"></div>
+<details class="panel paper-source" open><summary>摘要</summary><div id="paper-abstract-view"></div><a id="paper-arxiv" target="_blank" rel="noreferrer">在 arXiv 查看论文 ↗</a></details>
+<section class="panel paper-reading"><div class="panel-title"><h2>单篇精读</h2><a href="#agent">Agent 设置 ↗</a></div><p class="hint">仅使用该版本的官方 arXiv HTML。分析正文、公式文本、表格及图注，不进行图片视觉核验。长论文会分段处理，可能产生多次模型调用。</p><div id="paper-analysis"></div></section>
+</section></main>
+<dialog id="confirm-dialog"><div class="dialog-head"><h2>确认你的兴趣论文</h2><button class="close quiet" aria-label="关闭确认窗口">×</button></div><p id="confirm-summary"></p><p class="hint">确认后保存当前选择的快照。你仍可回来调整；待匹配条目会保留原始元数据。</p><div class="dialog-actions"><button class="close outline">继续选择</button><button id="confirm-save" class="primary">保存并确认</button></div></dialog>
+<dialog id="zotero-dialog"><div class="dialog-head"><div><div class="eyebrow">READ-ONLY IMPORT</div><h2>从 Zotero 导入</h2></div><button class="close quiet" aria-label="关闭 Zotero 窗口">×</button></div><p id="zotero-message" role="status" aria-live="polite"></p><form id="connect-form"><p class="hint">连接个人文献库。只读取收藏夹和论文元数据。</p><label>User ID（可选）<input id="zotero-user" inputmode="numeric" autocomplete="off" placeholder="将自动从 API Key 识别"></label><label>API Key<input id="zotero-key" type="password" autocomplete="off" required placeholder="仅需个人文献库读取权限"></label><p class="hint">密钥只保留在本机服务内存中，断开或重启后清除。<a href="https://www.zotero.org/settings/keys/new" target="_blank" rel="noreferrer">创建 API Key ↗</a></p><button class="primary" type="submit">连接 Zotero</button></form><div id="zotero-library" hidden><div class="library-bar"><span id="zotero-account"></span><button id="disconnect" class="quiet">断开连接</button></div><label>选择收藏夹<select id="collections"><option value="">全部文献</option></select></label><p class="hint">按最近修改排序；可跨页勾选条目，切换收藏夹会清空勾选。每次最多导入 100 篇。</p><button id="zselect-all" class="outline" type="button" disabled>全选本页</button><div id="zotero-items"></div><div class="pagination"><button id="zprev" class="outline">← 上一页</button><span id="zpage"></span><button id="znext" class="outline">下一页 →</button></div><div class="dialog-actions"><span id="zcount">已勾选 0 篇</span><button id="import" class="primary" disabled>导入选中论文</button></div></div></dialog>
+<script type="application/json" id="demo-data">{"papers": [{"arxiv_id": "demo-001", "title": "Learning Whole-Body Control from Diverse Human Motions", "abstract": "Demo abstract: a research direction connecting motion imitation, whole-body coordination and robust robot control. This text illustrates the reading workflow rather than describing an actual paper.", "abstract_zh": "演示摘要：围绕运动模仿、全身协调与机器人控制，展示从兴趣论文发现相关研究的阅读流程。本文案为界面示例，不对应真实论文结论。", "authors": ["Demo Research Team"], "published_at": "2026-10-30", "categories": ["cs.RO", "cs.LG"]}, {"arxiv_id": "demo-002", "title": "Generalist Robot Policies for Contact-Rich Manipulation", "abstract": "Demo abstract: an illustrative research topic on generalist policies and contact-rich manipulation. Recommendation scores and all research descriptions on this page are sample data.", "abstract_zh": "演示摘要：以通用机器人策略与接触丰富的操作任务为例，展示推荐、摘要切换与论文精读。页面上的相似度和研究描述均为示例数据。", "authors": ["Demo Robotics Lab"], "published_at": "2026-10-29", "categories": ["cs.RO", "cs.AI"]}, {"arxiv_id": "demo-003", "title": "Scaling Visual-Motor Learning with Structured Robot Data", "abstract": "Demo abstract: an illustrative topic on robot data and visual-motor learning, included to show how a reading library can collect papers across related research directions.", "abstract_zh": "演示摘要：以机器人数据和视觉运动学习为主题，展示跨研究方向的论文推荐与历史报告管理。", "authors": ["Demo Learning Group"], "published_at": "2026-10-28", "categories": ["cs.RO", "cs.CV"]}], "feed": {"day": "2026-10-30", "context": {"ready_seeds": 3, "confirmed_seeds": 3, "pending_seeds": 0, "corpus_vectors": 1200, "corpus_papers": 1200, "coverage": 1, "latest_release_day": "2026-10-30", "latest_target": 6, "latest_selected": 3}, "batch": {"batch_id": "demo-batch", "context": {"ready_seeds": 3, "confirmed_seeds": 3, "pending_seeds": 0, "corpus_vectors": 1200, "corpus_papers": 1200, "coverage": 1, "latest_release_day": "2026-10-30", "latest_target": 6, "latest_selected": 3}, "items": [{"arxiv_id": "demo-001", "title": "Learning Whole-Body Control from Diverse Human Motions", "abstract": "Demo abstract: a research direction connecting motion imitation, whole-body coordination and robust robot control. This text illustrates the reading workflow rather than describing an actual paper.", "abstract_zh": "演示摘要：围绕运动模仿、全身协调与机器人控制，展示从兴趣论文发现相关研究的阅读流程。本文案为界面示例，不对应真实论文结论。", "authors": ["Demo Research Team"], "published_at": "2026-10-30", "categories": ["cs.RO", "cs.LG"], "rank": 1, "similarity": 0.842, "is_latest_release": true, "announcement_day": "2026-10-30", "feedback": {"is_read": false, "interest": "none"}, "reasons": [{"title": "Motion Imitation for Humanoid Robots", "similarity": 0.86}, {"title": "Learning Robot Skills from Demonstrations", "similarity": 0.82}]}, {"arxiv_id": "demo-002", "title": "Generalist Robot Policies for Contact-Rich Manipulation", "abstract": "Demo abstract: an illustrative research topic on generalist policies and contact-rich manipulation. Recommendation scores and all research descriptions on this page are sample data.", "abstract_zh": "演示摘要：以通用机器人策略与接触丰富的操作任务为例，展示推荐、摘要切换与论文精读。页面上的相似度和研究描述均为示例数据。", "authors": ["Demo Robotics Lab"], "published_at": "2026-10-29", "categories": ["cs.RO", "cs.AI"], "rank": 2, "similarity": 0.7949999999999999, "is_latest_release": true, "announcement_day": "2026-10-30", "feedback": {"is_read": false, "interest": "none"}, "reasons": [{"title": "Motion Imitation for Humanoid Robots", "similarity": 0.82}, {"title": "Learning Robot Skills from Demonstrations", "similarity": 0.7799999999999999}]}, {"arxiv_id": "demo-003", "title": "Scaling Visual-Motor Learning with Structured Robot Data", "abstract": "Demo abstract: an illustrative topic on robot data and visual-motor learning, included to show how a reading library can collect papers across related research directions.", "abstract_zh": "演示摘要：以机器人数据和视觉运动学习为主题，展示跨研究方向的论文推荐与历史报告管理。", "authors": ["Demo Learning Group"], "published_at": "2026-10-28", "categories": ["cs.RO", "cs.CV"], "rank": 3, "similarity": 0.748, "is_latest_release": true, "announcement_day": "2026-10-30", "feedback": {"is_read": false, "interest": "none"}, "reasons": [{"title": "Motion Imitation for Humanoid Robots", "similarity": 0.78}, {"title": "Learning Robot Skills from Demonstrations", "similarity": 0.74}]}]}}, "report": {"title": "从研究问题到复现线索：一份精读报告示意", "metadata": {"basis": "official_html_text", "channel": "api", "model": "演示模型", "version": 1, "generated_at": "2026-10-30T08:00:00Z", "source_blocks": 36, "source_characters": 24000, "chunks": 3}, "sources": [], "sections": [{"heading": "核心问题与贡献", "claims": [{"text": "精读从研究问题出发，梳理论文希望解决的瓶颈，以及作者提出的核心贡献。此处是界面演示，不是实际论文分析。", "kind": "inference", "citations": []}]}, {"heading": "方法结构", "claims": [{"text": "正式报告基于官方 arXiv HTML，梳理方法的输入、模块与输出；每条作者陈述都需要可核对的原文依据。", "kind": "inference", "citations": []}]}, {"heading": "训练与推理流程", "claims": [{"text": "长论文先逐段提取证据笔记，再汇总成完整报告。进度和已完成的分段会保存，便于稍后继续查看。", "kind": "inference", "citations": []}]}, {"heading": "实验结果与对比条件", "claims": [{"text": "阅读时需要对照任务设置、比较基线、评估指标与实验条件，资料不足的内容明确标记。", "kind": "unknown", "citations": []}]}, {"heading": "局限与证据缺口", "claims": [{"text": "报告区分作者陈述、分析推断和证据不足。引用能够核对原文，但不代表结论已经独立验证。", "kind": "unknown", "citations": []}]}, {"heading": "对用户研究的价值", "claims": [{"text": "结合个人兴趣论文与研究画像，思考这项工作可能与当前研究方向产生哪些联系。", "kind": "inference", "citations": []}]}, {"heading": "下一步阅读或复现问题", "claims": [{"text": "继续阅读原文与代码，检查复现所需条件，并记录仍未解答的问题。", "kind": "inference", "citations": []}]}]}, "job": {"job_id": "demo-report", "arxiv_id": "demo-001", "kind": "read", "status": "succeeded", "stage": "已完成", "progress": 100, "model": "演示模型", "paper_input_hash": "demo", "report": {"title": "从研究问题到复现线索：一份精读报告示意", "metadata": {"basis": "official_html_text", "channel": "api", "model": "演示模型", "version": 1, "generated_at": "2026-10-30T08:00:00Z", "source_blocks": 36, "source_characters": 24000, "chunks": 3}, "sources": [], "sections": [{"heading": "核心问题与贡献", "claims": [{"text": "精读从研究问题出发，梳理论文希望解决的瓶颈，以及作者提出的核心贡献。此处是界面演示，不是实际论文分析。", "kind": "inference", "citations": []}]}, {"heading": "方法结构", "claims": [{"text": "正式报告基于官方 arXiv HTML，梳理方法的输入、模块与输出；每条作者陈述都需要可核对的原文依据。", "kind": "inference", "citations": []}]}, {"heading": "训练与推理流程", "claims": [{"text": "长论文先逐段提取证据笔记，再汇总成完整报告。进度和已完成的分段会保存，便于稍后继续查看。", "kind": "inference", "citations": []}]}, {"heading": "实验结果与对比条件", "claims": [{"text": "阅读时需要对照任务设置、比较基线、评估指标与实验条件，资料不足的内容明确标记。", "kind": "unknown", "citations": []}]}, {"heading": "局限与证据缺口", "claims": [{"text": "报告区分作者陈述、分析推断和证据不足。引用能够核对原文，但不代表结论已经独立验证。", "kind": "unknown", "citations": []}]}, {"heading": "对用户研究的价值", "claims": [{"text": "结合个人兴趣论文与研究画像，思考这项工作可能与当前研究方向产生哪些联系。", "kind": "inference", "citations": []}]}, {"heading": "下一步阅读或复现问题", "claims": [{"text": "继续阅读原文与代码，检查复现所需条件，并记录仍未解答的问题。", "kind": "inference", "citations": []}]}]}}, "records": [{"arxiv_id": "demo-001", "title": "Learning Whole-Body Control from Diverse Human Motions", "status": "succeeded", "stage": "已完成", "progress": 100, "updated_at": "2026-10-30T08:00:00Z", "created_at": "2026-10-30T08:00:00Z", "favorite": true}, {"arxiv_id": "demo-002", "title": "Generalist Robot Policies for Contact-Rich Manipulation", "status": "succeeded", "stage": "已完成", "progress": 100, "updated_at": "2026-10-29T08:00:00Z", "created_at": "2026-10-29T08:00:00Z", "favorite": false}, {"arxiv_id": "demo-003", "title": "Scaling Visual-Motor Learning with Structured Robot Data", "status": "succeeded", "stage": "已完成", "progress": 100, "updated_at": "2026-10-28T08:00:00Z", "created_at": "2026-10-28T08:00:00Z", "favorite": false}], "state": {"revision": 1, "confirmed": true, "matched": 2, "pending": 0, "items": [{"arxiv_id": "demo-001", "title": "Learning Whole-Body Control from Diverse Human Motions", "abstract": "Demo abstract: a research direction connecting motion imitation, whole-body coordination and robust robot control. This text illustrates the reading workflow rather than describing an actual paper.", "abstract_zh": "演示摘要：围绕运动模仿、全身协调与机器人控制，展示从兴趣论文发现相关研究的阅读流程。本文案为界面示例，不对应真实论文结论。", "authors": ["Demo Research Team"], "published_at": "2026-10-30", "categories": ["cs.RO", "cs.LG"], "seed_id": "seed-0", "published_year": 2026, "match_status": "matched", "sources": []}, {"arxiv_id": "demo-002", "title": "Generalist Robot Policies for Contact-Rich Manipulation", "abstract": "Demo abstract: an illustrative research topic on generalist policies and contact-rich manipulation. Recommendation scores and all research descriptions on this page are sample data.", "abstract_zh": "演示摘要：以通用机器人策略与接触丰富的操作任务为例，展示推荐、摘要切换与论文精读。页面上的相似度和研究描述均为示例数据。", "authors": ["Demo Robotics Lab"], "published_at": "2026-10-29", "categories": ["cs.RO", "cs.AI"], "seed_id": "seed-1", "published_year": 2026, "match_status": "matched", "sources": []}]}}</script><script>/* Offline fixture adapter for the real SHSF UI. Never calls a backend. */
+(() => {
+  const data = JSON.parse(document.getElementById('demo-data').textContent);
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const agent = {mode:'api',api:{base_url:'https://api.openai.com/v1',protocol:'chat_completions',api_key_configured:false,explain_model:'',read_model:'',ready:false,missing:['演示模式不连接模型服务']},chatgpt:{profiles:[],active:null,connected:false,sharing:false,pending:false,error:''}};
+  const response = (value, status=200) => new Response(JSON.stringify(clone(value)), {status,headers:{'Content-Type':'application/json'}});
+  const state = () => {
+    const value=data.state;
+    value.matched=value.items.length;value.pending=0;
+    return value;
+  };
+  window.fetch = async (input, options={}) => {
+    const url=new URL(String(input),'https://demo.invalid');
+    const path=url.pathname, query=url.searchParams, body=JSON.parse(options.body||'{}');
+    if(path==='/api/bootstrap')return response({state:state(),zotero:{connected:false}});
+    if(path==='/api/papers'){
+      const q=(query.get('q')||'').toLowerCase();
+      const items=data.papers.filter(p=>(query.get('mode')==='author'?p.authors.join(' '):query.get('mode')==='identifier'?p.arxiv_id:p.title+' '+p.abstract).toLowerCase().includes(q));
+      if(query.get('sort')==='recent')items.sort((a,b)=>b.published_at.localeCompare(a.published_at));
+      return response({items,total:items.length,page:1,page_size:20});
+    }
+    if(path==='/api/seeds/add'){
+      const paper=data.papers.find(p=>p.arxiv_id===body.arxiv_id);
+      if(paper&&!data.state.items.some(p=>p.arxiv_id===paper.arxiv_id))data.state.items.push({...paper,seed_id:paper.arxiv_id,published_year:2026,match_status:'matched',sources:[]});
+      data.state.revision++;data.state.confirmed=false;return response({state:state()});
+    }
+    if(path==='/api/seeds/remove'){
+      data.state.items=data.state.items.filter(p=>p.seed_id!==body.seed_id);
+      data.state.revision++;data.state.confirmed=false;return response({state:state()});
+    }
+    if(path==='/api/seeds/confirm'){data.state.confirmed=true;return response({state:state()});}
+    if(path==='/api/recommendations')return response(data.feed);
+    if(path==='/api/recommendations/feedback'){
+      const paper=data.feed.batch.items.find(p=>p.arxiv_id===body.arxiv_id);
+      if(paper){if('interest' in body)paper.feedback.interest=body.interest;if('is_read' in body)paper.feedback.is_read=body.is_read;return response(paper.feedback);}
+    }
+    if(path==='/api/analysis/records'){
+      let items=data.records.filter(p=>p.title.toLowerCase().includes((query.get('q')||'').toLowerCase()));
+      if(query.get('favorites')==='true')items=items.filter(p=>p.favorite);
+      if(query.get('status')&&query.get('status')!=='all')items=items.filter(p=>p.status===query.get('status'));
+      return response({active:[],items,total:items.length,page:1,pages:1,page_size:20});
+    }
+    if(path==='/api/analysis/favorite'){
+      const record=data.records.find(p=>p.arxiv_id===body.arxiv_id);
+      if(record){record.favorite=body.favorite;return response({arxiv_id:record.arxiv_id,favorite:record.favorite});}
+    }
+    if(path==='/api/analysis/paper'){
+      const paper=data.papers.find(p=>p.arxiv_id===query.get('arxiv_id'));
+      if(paper){const job={...data.job,arxiv_id:paper.arxiv_id};return response({paper:{...paper,version:1,input_hash:'demo'},authors:paper.authors,jobs:[job],saved_read:job});}
+    }
+    if(path==='/api/agent'||path==='/api/agent/reload')return response(agent);
+    return response({error:'演示模式：此操作需要安装并运行 SHSF，本页不会连接模型、账户或数据库。'},400);
+  };
+  // Account and key entry are unnecessary in a public, offline demonstration.
+  document.querySelectorAll('input[type="password"],#zotero-user').forEach(input=>{input.disabled=true;input.placeholder='演示页面无需填写凭据';});
+  document.addEventListener('submit',event=>{
+    if(['connect-form','agent-remote-auth'].includes(event.target.id)){event.preventDefault();event.stopImmediatePropagation();}
+  },true);
+  document.addEventListener('click',event=>{
+    const link=event.target.closest('a');
+    if(link?.href.includes('arxiv.org/')){event.preventDefault();document.getElementById('demo-message').textContent='论文为虚构示例，未关联真实 arXiv 页面。';}
+  });
+})();
+</script><script>'use strict';
+const $ = id => document.getElementById(id);
+const token = document.querySelector('meta[name=shsf-token]').content;
+let state = null, mode = 'all', page = 1, results = null, busy = false, searchRun = 0;
+let zstart = 0, ztotal = 0, zchosen = new Set(), zrun = 0, zbusy = false;
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
+const notice = message => { $('notice').textContent = message; };
+async function api(path, body) {
+  const response = await fetch(path, body === undefined ? {} : {method:'POST', headers:{'Content-Type':'application/json','X-SHSF-Token':token}, body:JSON.stringify(body)});
+  const data = await response.json();
+  if (!response.ok) { if (data.state) { state = data.state; render(); } throw new Error(data.error || '请求失败，请重试。'); }
+  return data;
+}
+function setBusy(value) {
+  busy = value;
+  document.querySelectorAll('[data-mutation]').forEach(n => { n.disabled = value; });
+  $('review').disabled = value || !state?.items.length;
+  $('confirm-save').disabled = value;
+  $('import').disabled = value || zbusy || !zchosen.size;
+}
+async function mutate(path, body = {}) {
+  if (busy || !state) return false;
+  setBusy(true);
+  try { const data = await api(path, {...body, expected_revision:state.revision}); state = data.state; render(); return data; }
+  catch (e) { notice(e.message); return false; }
+  finally { setBusy(false); }
+}
+const statusText = item => item.match_status === 'matched' ? '已匹配本地论文' : item.match_status === 'ambiguous' ? '匹配存疑 · 待处理' : item.match_status === 'source_deleted' ? '源记录已撤回' : '未入本地库 · 待处理';
+function render() {
+  $('count').textContent = state.items.length;
+  const box = $('selected-list'); box.replaceChildren();
+  if (!state.items.length) { const empty = el('div','empty'); empty.append(el('div','symbol','✧'), el('div','','还没有选择论文'), el('p','hint','搜索你喜欢的工作，或导入 Zotero 收藏。')); box.append(empty); }
+  for (const item of state.items) {
+    const row = el('article','seed'), content = el('div','seed-content');
+    content.append(el('div','seed-title',item.title), el('div','authors',`${item.authors.slice(0,2).join(', ')}${item.authors.length>2?' et al.':''} · ${item.published_year || '年份未知'}`));
+    if (item.sources.some(s => s.source_kind === 'zotero')) content.append(el('span','tag','Zotero'));
+    content.append(el('span',`tag ${item.match_status==='matched'?'':'pending'}`,statusText(item)));
+    const remove = el('button','','×'); remove.title = '移除这篇论文'; remove.setAttribute('aria-label',`移除 ${item.title}`); remove.dataset.mutation = ''; remove.disabled = busy;
+    remove.onclick = async () => { if (await mutate('/api/seeds/remove',{seed_id:item.seed_id})) notice('已更新种子草稿。'); };
+    row.append(content, remove); box.append(row);
+  }
+  $('selection-stats').textContent = `${state.matched} 篇已匹配 · ${state.pending} 篇待处理`;
+  $('footer-title').textContent = state.confirmed ? '当前兴趣论文已确认' : state.items.length ? `已选择 ${state.items.length} 篇兴趣论文` : '从几篇启发你的论文开始';
+  $('footer-sub').textContent = state.confirmed ? '快照已保存。调整选择后可重新确认。' : '草稿已自动保存在本机数据库。';
+  $('review').textContent = state.confirmed ? '查看并重新确认 →' : '确认兴趣论文 →';
+  setBusy(busy); if (results) renderResults();
+}
+async function search() {
+  const run = ++searchRun;
+  $('results-info').textContent = '检索中…'; $('prev').disabled = $('next').disabled = true;
+  try {
+    const query = new URLSearchParams({q:$('query').value.trim(), mode, sort:$('sort').value, page});
+    const data = await api('/api/papers?' + query);
+    if (run !== searchRun) return;
+    results = data; renderResults();
+  } catch(e) { if(run===searchRun) { $('results-info').textContent = '检索失败'; $('results').replaceChildren(el('p','empty',e.message)); } }
+}
+function renderResults() {
+  $('results-info').textContent = `共 ${results.total.toLocaleString()} 篇论文`;
+  $('page-info').textContent = `第 ${results.page} / ${Math.max(1,Math.ceil(results.total/results.page_size))} 页`;
+  $('prev').disabled = page <= 1; $('next').disabled = page * results.page_size >= results.total;
+  const box = $('results'); box.replaceChildren();
+  if (!results.items.length) box.append(el('div','empty','没有找到论文。试试其他关键词、作者或 arXiv ID。'));
+  for (const item of results.items) {
+    const selected = state?.items.find(s => s.arxiv_id === item.arxiv_id);
+    const row = el('article','paper'), check = el('button',`check ${selected?'chosen':''}`,selected?'✓':'+');
+    check.setAttribute('aria-label',`${selected?'移除':'添加'} ${item.title}`); check.setAttribute('aria-pressed',Boolean(selected)); check.dataset.mutation = ''; check.disabled = busy;
+    check.onclick = async () => { if (await mutate(selected?'/api/seeds/remove':'/api/seeds/add',selected?{seed_id:selected.seed_id}:{arxiv_id:item.arxiv_id})) notice('已自动保存种子草稿。'); };
+    const content = el('div','paper-content'); content.append(el('h3','',item.title),el('p','authors',`${item.authors.slice(0,3).join(', ')}${item.authors.length>3?' et al.':''} · ${item.published_at.slice(0,4)}`));
+    for(const cat of item.categories.slice(0,3)) content.append(el('span','tag',cat));
+    content.append(el('span','tag',`arXiv:${item.arxiv_id}`));
+    const abstract = el('p','abstract',item.abstract), details = el('button','details','展开摘要 ↓');
+    details.onclick = () => { const expanded = abstract.classList.toggle('expanded'); details.textContent = expanded?'收起摘要 ↑':'展开摘要 ↓'; };
+    content.append(abstract,details); row.append(check,content); box.append(row);
+  }
+}
+$('search-form').onsubmit = event => { event.preventDefault(); page=1; search(); };
+document.querySelectorAll('[data-mode]').forEach(button => button.onclick=()=>{ mode=button.dataset.mode; document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b===button)); page=1; search(); });
+$('sort').onchange = () => {page=1; search();};
+$('prev').onclick = () => {page--;search();}; $('next').onclick = () => {page++;search();};
+document.querySelectorAll('dialog .close').forEach(b => b.onclick = () => b.closest('dialog').close());
+$('review').onclick = () => { $('confirm-summary').textContent=`共 ${state.items.length} 篇：${state.matched} 篇已匹配本地库，${state.pending} 篇待处理。${state.items.length<20?'当前少于建议的 20 篇，仍可确认保存。':''}`; $('confirm-dialog').showModal(); };
+$('confirm-save').onclick = async () => { if(await mutate('/api/seeds/confirm')) { $('confirm-dialog').close(); notice('兴趣论文已确认。补齐向量后可生成相似度推荐。'); } };
+$('theme').onclick = () => { document.body.classList.toggle('dark'); try{localStorage.setItem('shsf-theme',document.body.classList.contains('dark')?'dark':'light');}catch{} };
+try{document.body.classList.toggle('dark',localStorage.getItem('shsf-theme')==='dark');}catch{}
+function zmessage(text){$('zotero-message').textContent=text;}
+function zstatus(status){$('connect-form').hidden=status.connected; $('zotero-library').hidden=!status.connected; if(status.connected)$('zotero-account').textContent=`${status.username} · 个人文献库`;}
+function zcount(){
+  $('zcount').textContent=`已勾选 ${zchosen.size} 篇`;
+  $('import').disabled=busy||zbusy||!zchosen.size;
+  const checks=[...$('zotero-items').querySelectorAll('input[type="checkbox"]')];
+  $('zselect-all').disabled=zbusy||!checks.length;
+  $('zselect-all').textContent=checks.length&&checks.every(check=>check.checked)?'取消本页全选':'全选本页';
+}
+async function loadCollections(){
+  const select=$('collections'); select.replaceChildren(new Option('全部文献',''));
+  let start=0, total=1;
+  while(start<total){const data=await api('/api/zotero/collections?start='+start); for(const c of data.items)select.add(new Option((c.parent?'↳ ':'')+c.name,c.key)); total=data.total; start+=100;}
+}
+async function loadZitems(){
+  const run=++zrun; zmessage('正在读取 Zotero 条目…'); zbusy=true; zcount(); $('zprev').disabled=$('znext').disabled=true;
+  try{
+    const data=await api('/api/zotero/items?'+new URLSearchParams({collection:$('collections').value,start:zstart})); if(run!==zrun)return;
+    ztotal=data.total; const box=$('zotero-items'); box.replaceChildren();
+    if(!data.items.length)box.append(el('p','empty','当前页没有可导入的论文条目。'));
+    for(const item of data.items){const row=el('div','zitem'),check=el('input');check.type='checkbox';check.id='zitem-'+item.external_key;check.checked=zchosen.has(item.external_key);check.onchange=()=>{if(check.checked)zchosen.add(item.external_key);else zchosen.delete(item.external_key);zcount();};const label=el('label','',item.title);label.htmlFor=check.id;label.append(el('span','hint',`${item.authors.slice(0,2).join(', ')} · ${item.published_year||'年份未知'}`),el('span',`tag ${item.match_status==='matched'?'':'pending'}`,statusText(item)));row.append(check,label);box.append(row);}
+    $('zpage').textContent=`${ztotal?Math.floor(zstart/50)+1:1} / ${Math.max(1,Math.ceil(ztotal/50))} 页`;
+    $('zprev').disabled=zstart===0; $('znext').disabled=zstart+50>=ztotal; zmessage('勾选希望用于兴趣建模的论文。');
+  }catch(e){if(run===zrun)zmessage(e.message);}finally{if(run===zrun){zbusy=false;zcount();}}
+}
+async function openZotero(){ $('zotero-dialog').showModal(); try{const data=await api('/api/bootstrap');zstatus(data.zotero);if(data.zotero.connected){await loadCollections();zstart=0;zchosen.clear();await loadZitems();}}catch(e){zmessage(e.message);} }
+$('zotero-open').onclick=openZotero;
+$('connect-form').onsubmit=async event=>{event.preventDefault();const button=event.submitter;button.disabled=true;zmessage('正在验证只读权限…');try{const data=await api('/api/zotero/connect',{api_key:$('zotero-key').value.trim(),user_id:$('zotero-user').value.trim()});$('zotero-key').value='';zstatus(data);await loadCollections();zstart=0;zchosen.clear();await loadZitems();}catch(e){$('zotero-key').value='';zmessage(e.message);}finally{button.disabled=false;}};
+$('disconnect').onclick=async()=>{try{zstatus(await api('/api/zotero/disconnect',{}));++zrun;zchosen.clear();$('zotero-items').replaceChildren();zmessage('已断开连接，服务内存中的 API Key 已清除。');}catch(e){zmessage(e.message);}};
+$('collections').onchange=()=>{zchosen.clear();zstart=0;zcount();loadZitems();};
+$('zselect-all').onclick=()=>{
+  if(zbusy)return;
+  const checks=[...$('zotero-items').querySelectorAll('input[type="checkbox"]')];
+  const select=!checks.every(check=>check.checked);
+  if(select&&zchosen.size+checks.filter(check=>!check.checked).length>100){zmessage('每次最多勾选 100 篇，请先导入已选论文或取消部分勾选。');return;}
+  for(const check of checks){check.checked=select;check.onchange();}
+};
+$('zprev').onclick=()=>{zstart-=50;loadZitems();};$('znext').onclick=()=>{zstart+=50;loadZitems();};
+$('import').onclick=async()=>{const data=await mutate('/api/zotero/import',{item_keys:[...zchosen]});if(data){zchosen.clear();zcount();$('zotero-dialog').close();notice(`已处理 ${data.imported} 篇论文，重复项已合并。当前 ${state.pending} 篇待匹配。`);}else zmessage($('notice').textContent);};
+(async()=>{try{const data=await api('/api/bootstrap');state=data.state;render();await search();}catch(e){notice(e.message);$('results-info').textContent='无法读取数据库';}})();
+
+let feed = null, feedBusy = false, feedRun = 0;
+function feedMessage(text){$('feed-notice').textContent=text;}
+function feedControls(){
+  $('feed-generate').disabled=feedBusy||feed?.update?.status==='running'||!feed?.context.ready_seeds||Boolean(feed?.batch);
+  $('feed-generate').textContent=feedBusy?'正在生成…':feed?.update?.status==='running'?'每日更新中…':feed?.batch?'今日推荐已保存':'生成今日推荐';
+  $('feed-refresh').disabled=feedBusy;
+}
+function sortedFeedItems(items, order){
+  return [...items].sort((a,b)=>{
+    const difference=order==='submitted'
+      ? Date.parse(b.published_at)-Date.parse(a.published_at)
+      : b.similarity-a.similarity;
+    return difference||a.rank-b.rank;
+  });
+}
+const abstractLanguages=new Map();
+function abstractView(paper,expandable=false,paragraphId=null){
+  const box=el('div','abstract-block');
+  let expanded=!expandable;
+  function render(){
+    const language=abstractLanguages.get(paper.arxiv_id)||'en';
+    const chinese=language==='zh'&&Boolean(paper.abstract_zh);
+    const toolbar=el('div','abstract-toolbar'),languages=el('div','abstract-languages');
+    languages.setAttribute('role','group');languages.setAttribute('aria-label','摘要语言');
+    for(const [value,label] of [['en','英文'],['zh','中文']]){
+      const button=el('button',language===value?'active':'',label);button.type='button';
+      button.setAttribute('aria-pressed',String(language===value));
+      button.onclick=()=>{abstractLanguages.set(paper.arxiv_id,value);render();};
+      languages.append(button);
+    }
+    toolbar.append(el('span','hint','摘要'),languages);
+    const paragraph=el('p',expanded?'abstract expanded':'abstract',chinese?paper.abstract_zh:paper.abstract);
+    paragraph.lang=chinese?'zh-CN':'en';
+    if(paragraphId)paragraph.id=paragraphId;
+    box.replaceChildren(toolbar,paragraph);
+    if(expandable){
+      const label=chinese?'中文摘要':'英文摘要';
+      const more=el('button','details',`${expanded?'收起':'展开'}${label} ${expanded?'↑':'↓'}`);
+      more.type='button';more.onclick=()=>{expanded=!expanded;render();};box.append(more);
+    }
+    if(language==='zh')box.append(el('p','hint',chinese?'Agent 中文译文':paper.translation_status==='failed'?'中文摘要暂不可用，当前显示英文。':'中文摘要尚未准备好，当前显示英文。'));
+  }
+  render();return box;
+}
+function renderFeed(){
+  const context=feed.context, batch=feed.batch;
+  $('feed-day').textContent=`${feed.day} · ${batch?batch.items.length:0} 篇研究`;
+  $('feed-stats').textContent=`${context.ready_seeds} / ${context.confirmed_seeds} 篇种子向量就绪 · 候选库 ${context.corpus_vectors.toLocaleString()} / ${context.corpus_papers.toLocaleString()} 篇具备向量`;
+  const releaseContext=batch?.context||context;
+  $('feed-release').textContent=releaseContext.latest_release_day
+    ? `${batch?'本批使用的公告日期':'已完整导入的公告日期'} ${releaseContext.latest_release_day} · ${batch?`从该公告批次选入 ${releaseContext.latest_selected??0} 篇，目标 ${releaseContext.latest_target??6} 篇。${(releaseContext.latest_selected??0)<(releaseContext.latest_target??6)?'可用新论文不足，已由其他相关研究补齐。':''}`:'生成推荐时优先安排该批次的 6 篇新论文，其余从相关研究中选择。'}`
+    : '尚无完整导入的官方公告批次；同步完成后展示可用公告日期和实际选入数量。';
+  const update=feed.update, stages={announcements:'同步最新公告',incremental:'同步论文更新',embeddings:'计算论文向量',recommendations:'生成今日推荐'};
+  $('feed-update').textContent=update?update.status==='completed'
+    ? `最近自动更新：${new Date(update.finished_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false})}。`
+    :update.status==='running'?`每日更新中：${stages[update.stage]||'正在处理'}。`
+    :update.stage==='announcements'
+      ? `最近自动更新在公告同步阶段未完成，将稍后重试；${releaseContext.latest_release_day?'仍沿用已完整导入的公告批次，所示日期不代表 arXiv 当前最新公告日期。':'完整同步后才会显示可用公告日期。'}已保存的推荐仍可阅读。`
+      :'最近自动更新未完成，将稍后重试；已保存的推荐及其公告日期保持不变。'
+    :'每日 08:00（北京时间）自动更新。';
+  $('feed-coverage').textContent=`当前向量覆盖率 ${(context.coverage*100).toFixed(1)}%。${batch?`本批生成时覆盖率 ${(batch.context.coverage*100).toFixed(1)}%，结果保持固定。`:''}`;
+  if(!context.confirmed_seeds)feedMessage('请先选择并确认兴趣论文。');
+  else if(!context.ready_seeds)feedMessage('种子尚无有效向量，请先完成向量计算。');
+  else feedMessage(`${context.draft_changed?'兴趣论文草稿有改动，本页仍使用上次确认的种子。 ':''}${context.pending_seeds?`${context.pending_seeds} 篇种子暂未就绪，不参与本次排序。 `:''}${context.coverage<.99?'候选向量仍在补齐中，当前结果仅覆盖已有有效向量的论文。':''}`);
+  const box=$('feed-cards');box.replaceChildren();
+  if(!batch){box.append(el('div','panel empty','每日更新完成后会自动生成推荐，你也可以点击“生成今日推荐”。'));feedControls();return;}
+  if(!batch.items.length)box.append(el('div','panel empty','今天没有新的可用候选。候选向量仍在补齐中，也可以调整兴趣论文后重新确认。'));
+  for(const [index,paper] of sortedFeedItems(batch.items,$('feed-sort').value).entries()){
+    const card=el('article',`feed-card ${paper.feedback.is_read?'read':''}`), top=el('div','card-top');
+    const latest=Boolean(paper.is_latest_release);
+    top.append(el('span','',`#${String(index+1).padStart(2,'0')} · ${latest?'最新批次 · 公告 '+paper.announcement_day:'其他研究'} · 首次提交 ${paper.published_at.slice(0,10)}`),el('span','',`余弦相似度 ${paper.similarity.toFixed(3)}`));
+    card.append(top,el('h2','',paper.title),el('p','authors',paper.authors.join(', ')));
+    for(const category of [...new Set(paper.categories)])card.append(el('span','tag',category));
+    card.append(abstractView(paper,true));
+    const reasons=el('div','reasons');reasons.append(el('strong','','与你的这些兴趣论文相近'));
+    for(const reason of paper.reasons)reasons.append(el('p','',`${reason.title} · ${reason.similarity.toFixed(3)}`));
+    card.append(reasons);
+    if(paper.source_deleted)card.append(el('p','hint','该论文的源记录已撤回，以下为生成推荐时保存的元数据。'));
+    else{const link=el('a','paper-link','在 arXiv 查看论文 ↗');link.href='https://arxiv.org/abs/'+paper.arxiv_id;link.target='_blank';link.rel='noreferrer';card.append(link);}
+    const actions=el('div','actions');
+    for(const [label,value] of [['感兴趣','like'],['不感兴趣','dislike'],[paper.feedback.is_read?'已读 ✓':'标记已读','read']]){
+      const active=value==='read'?paper.feedback.is_read:paper.feedback.interest===value;
+      const button=el('button',active?'active':'',label);button.setAttribute('aria-pressed',active);
+      button.onclick=async()=>{
+        [...actions.querySelectorAll('button')].forEach(b=>b.disabled=true);
+        try{const body={arxiv_id:paper.arxiv_id,...(value==='read'?{is_read:!paper.feedback.is_read}:{interest:active?'none':value})};paper.feedback=await api('/api/recommendations/feedback',body);renderFeed();}
+        catch(e){feedMessage(e.message);[...actions.querySelectorAll('button')].forEach(b=>b.disabled=false);}
+      };actions.append(button);
+    }
+    card.append(actions);
+    const analysisActions=el('div','analysis-actions'),explain=el('button','outline','推荐解读'),read=el('button','outline','单篇精读 →');
+    const panel=el('div','inline-analysis');panel.hidden=true;
+    explain.onclick=()=>{panel.hidden=!panel.hidden;if(!panel.hidden)loadAnalysisPanel(panel,paper.arxiv_id,'explain',batch.batch_id);};
+    read.onclick=()=>{location.hash='paper/'+encodeURIComponent(paper.arxiv_id);};
+    analysisActions.append(explain,read);card.append(analysisActions,panel);box.append(card);
+  }
+  feedControls();
+}
+async function loadFeed(){const run=++feedRun;try{const data=await api('/api/recommendations');if(run!==feedRun)return;feed=data;renderFeed();}catch(e){feedMessage(e.message);}}
+function showView(view){
+  for(const name of ['feed','seeds','agent','paper','readings']){
+    $(name==='seeds'?'seed-view':name+'-view').hidden=view!==name;
+    const nav=$('nav-'+name);if(nav)nav.classList.toggle('nav-active',view===name||(name==='readings'&&view==='paper'&&paperFromRecords())||(name==='feed'&&view==='paper'&&!paperFromRecords()));
+  }
+  document.title='SHSF · '+({feed:'每日推荐',seeds:'选择兴趣论文',agent:'Agent 设置',paper:'单篇精读',readings:'精读记录'}[view]);
+  clearTimeout(readingsTimer);++readingsRun;
+  if(view==='feed')loadFeed();
+  if(view==='agent')loadAgent();
+  if(view==='paper')loadPaper();
+  if(view==='readings')loadReadings(true);
+}
+$('nav-feed').onclick=()=>{location.hash='feed';};$('nav-seeds').onclick=$('feed-edit-seeds').onclick=()=>{location.hash='seeds';};
+$('feed-refresh').onclick=loadFeed;
+$('feed-sort').onchange=()=>{if(feed)renderFeed();};
+$('feed-generate').onclick=async()=>{
+  if(feedBusy)return;feedBusy=true;feedControls();feedMessage('正在为你排序并保存今日推荐，请稍候…');
+  try{feed=await api('/api/recommendations/generate',{});renderFeed();}catch(e){feedMessage(e.message);}finally{feedBusy=false;feedControls();}
+};
+
+
+let agentState=null, agentChosenMode=null, agentModels=[], agentAccount=null, agentRun=0, agentPoll=null, agentBusy=false;
+function agentMessage(text){$('agent-notice').textContent=text;}
+function chosenAgentMode(){return document.querySelector('input[name="agent-mode"]:checked').value;}
+function agentPanels(){const chat=chosenAgentMode()==='chatgpt';$('agent-api').hidden=chat;$('agent-chatgpt').hidden=!chat;}
+function renderAgent(){
+  const data=agentState, chat=data.chatgpt, mode=agentChosenMode||data.mode;
+  document.querySelectorAll('input[name="agent-mode"]').forEach(r=>r.checked=r.value===mode);agentPanels();
+  $('agent-current').textContent=`当前已保存通道：${data.mode==='api'?'API':'ChatGPT 套餐'}。API 配置以 .env 为准；页面保存的通道选择优先。`;
+  const info=$('agent-api-info');info.replaceChildren();
+  for(const [label,value] of [['服务地址',data.api.base_url],['协议',data.api.protocol],['密钥',data.api.api_key_configured?'已配置（隐藏）':'未配置；本机模型可不设置'],['推荐解读模型',data.api.explain_model||'未配置'],['单篇精读模型',data.api.read_model||'未配置'],['配置状态',data.api.error||(data.api.ready?'配置完整，尚需测试':data.api.missing.join('、'))]])info.append(el('dt','',label),el('dd','',value));
+  const select=$('agent-profiles'), selected=select.value;
+  select.replaceChildren(new Option('选择账户',''));
+  for(const profile of chat.profiles)select.add(new Option(`${profile.label} · ${profile.connected?'已连接':'需登录'}`,profile.id));
+  select.value=chat.active||selected;
+  if(agentAccount!==chat.active){agentAccount=chat.active;agentModels=[];renderAgentModels();}
+  let authStatus=chat.error||(!chat.connected?'尚未连接 ChatGPT。':chat.sharing?'已连接，已授权套餐使用。':'已完成身份登录，尚未授权套餐使用。');
+  if(chat.pending)authStatus=chat.connected?authStatus+'另一次登录正在等待授权。':'等待在官方页面完成授权…';
+  $('agent-auth-status').textContent=authStatus;
+  const missingModels=[!data.chatgpt_explain_model?'推荐解读':null,!data.chatgpt_read_model?'单篇精读':null].filter(Boolean);
+  $('agent-model-readiness').textContent=missingModels.length
+    ? `尚未保存${missingModels.join('、')}模型。读取模型列表并选择后，点击“保存模型选择”。`
+    : `已保存：推荐解读 ${data.chatgpt_explain_model} · 单篇精读 ${data.chatgpt_read_model}`;
+  if(!chat.pending)$('agent-auth-link').hidden=true;
+  $('agent-remote-auth').hidden=!chat.pending;
+  $('agent-complete-login').disabled=!chat.pending||agentBusy;
+  if(!chat.pending)$('agent-callback-url').value='';
+  $('agent-models').disabled=!chat.sharing||agentBusy;
+  $('agent-relogin').disabled=!select.value||agentBusy;
+  $('agent-logout').disabled=(!select.value&&!chat.pending)||agentBusy;
+  if(data.last_test)$('agent-test-result').textContent=`上次测试成功 · ${data.last_test.mode==='api'?'API':'ChatGPT 套餐'} · ${data.last_test.model} · ${data.last_test.reply}`;
+}
+function renderAgentModels(){
+  for(const task of ['explain','read']){
+    const select=$('agent-'+task+'-model'), old=select.value||agentState?.['chatgpt_'+task+'_model'];
+    select.replaceChildren(new Option(agentModels.length?'选择模型':'请先读取模型列表',''));
+    for(const model of agentModels)select.add(new Option(model.name,model.id));
+    if(old&&!agentModels.length){select.add(new Option(`${old}（已保存，待读取列表）`,old));select.value=old;}
+    else if(agentModels.some(m=>m.id===old))select.value=old;
+  }
+}
+async function loadAgent(){
+  clearTimeout(agentPoll);const run=++agentRun;
+  try{const data=await api('/api/agent');if(run!==agentRun)return;agentState=data;renderAgent();
+    if(data.chatgpt.pending)agentPoll=setTimeout(()=>{if(!$('agent-view').hidden)loadAgent();},2000);
+  }catch(e){agentMessage(e.message);}
+}
+async function agentAction(action){
+  if(agentBusy)return;agentBusy=true;
+  document.querySelectorAll('#agent-view button').forEach(b=>b.disabled=true);
+  try{await action();}catch(e){agentMessage(e.message);}finally{agentBusy=false;document.querySelectorAll('#agent-view button').forEach(b=>b.disabled=false);if(agentState)renderAgent();}
+}
+document.querySelectorAll('input[name="agent-mode"]').forEach(r=>r.onchange=()=>{agentChosenMode=r.value;agentPanels();});
+$('agent-reload').onclick=()=>agentAction(async()=>{agentState=await api('/api/agent/reload',{});$('agent-test-result').textContent='';agentMessage('已重新读取 .env。系统环境变量优先于文件配置。');});
+$('agent-save').onclick=()=>agentAction(async()=>{
+  agentState=await api('/api/agent/settings',{mode:chosenAgentMode(),chatgpt_explain_model:$('agent-explain-model').value,chatgpt_read_model:$('agent-read-model').value});agentChosenMode=null;$('agent-test-result').textContent='';agentMessage('通道设置已保存在本机。不会自动切换计费通道。');
+});
+$('agent-save-models').onclick=$('agent-save').onclick;
+async function beginAgentLogin(profileId){
+  const data=await api('/api/agent/chatgpt/start',{profile_id:profileId||null});
+  const link=$('agent-auth-link');link.href=data.authorization_url;link.hidden=false;
+  $('agent-callback-url').value='';
+  $('agent-callback-status').textContent='';
+  agentMessage('请点击“前往 ChatGPT 官方授权页面”完成登录。此操作不会读取你的 ChatGPT 历史对话。');
+  await loadAgent();
+}
+$('agent-login').onclick=()=>agentAction(()=>beginAgentLogin(null));
+$('agent-remote-auth').onsubmit=event=>{
+  event.preventDefault();
+  if(agentBusy)return;
+  const callbackUrl=$('agent-callback-url').value.trim();
+  if(!callbackUrl)return;
+  clearTimeout(agentPoll);
+  $('agent-callback-url').value='';
+  $('agent-callback-status').textContent='正在验证授权，请稍候…';
+  agentMessage('正在验证 ChatGPT 授权，请稍候…');
+  agentAction(async()=>{
+    try{
+      await api('/api/agent/chatgpt/complete',{callback_url:callbackUrl});
+    }catch(error){
+      $('agent-callback-status').textContent=error.message;
+      await loadAgent();
+      throw error;
+    }
+    await loadAgent();
+    agentMessage('ChatGPT 授权已完成，可以读取模型列表并保存模型选择。');
+  });
+};
+$('agent-relogin').onclick=()=>agentAction(()=>beginAgentLogin($('agent-profiles').value));
+$('agent-profiles').onchange=()=>agentAction(async()=>{if(!$('agent-profiles').value)return;await api('/api/agent/chatgpt/select',{profile_id:$('agent-profiles').value});await loadAgent();});
+$('agent-logout').onclick=()=>agentAction(async()=>{const data=await api('/api/agent/chatgpt/disconnect',{profile_id:$('agent-profiles').value||null});agentMessage(data.message);agentModels=[];renderAgentModels();await loadAgent();});
+$('agent-models').onclick=()=>agentAction(async()=>{agentModels=(await api('/api/agent/chatgpt/models',{})).models;renderAgentModels();agentMessage('模型列表已更新。选择两种任务的模型后保存当前通道。');});
+$('agent-test').onclick=()=>agentAction(async()=>{
+  if(chosenAgentMode()!==agentState.mode)throw new Error('请先保存当前通道，再发送连接测试。');
+  agentState.last_test=null;$('agent-test-result').textContent='正在发送固定短文本，请稍候…';
+  try{const result=await api('/api/agent/test',{task:$('agent-test-task').value});agentState.last_test=result;agentMessage('连接测试成功。');}
+  catch(e){$('agent-test-result').textContent='连接测试未完成。';throw e;}
+});
+$('nav-agent').onclick=()=>{location.hash='agent';};
+function currentView(){return location.hash.startsWith('#readings')?'readings':location.hash.startsWith('#paper/')?'paper':location.hash==='#agent'?'agent':location.hash==='#seeds'?'seeds':'feed';}
+
+
+let paperRun=0;
+const analysisPanels=new WeakMap();
+function reportView(report){
+  const box=el('div','analysis-report'),meta=report.metadata;
+  box.append(el('div','report-basis',meta.basis==='abstract_only'?'摘要解读 · 未阅读全文':'官方 HTML 正文精读 · 不含图片视觉核验'),el('h3','',report.title),el('p','hint',`${meta.channel==='api'?'API':'ChatGPT 套餐'} · ${meta.model} · arXiv v${meta.version} · ${new Date(meta.generated_at).toLocaleString('zh-CN')}`));
+  if(meta.basis==='official_html_text')box.append(el('p','hint',`已处理 ${meta.source_blocks} 个正文资料块，${meta.source_characters.toLocaleString()} 字符，${meta.chunks} 个分段。`));
+  const sources=new Map(report.sources.map(s=>[s.id,s]));
+  for(const section of report.sections){
+    const part=el('section','report-section');part.append(el('h4','',section.heading));
+    for(const claim of section.claims){
+      const paragraph=el('div','report-claim');paragraph.append(el('span',`claim-kind ${claim.kind}`,claim.kind==='paper'?'作者陈述':claim.kind==='inference'?'分析推断':'证据不足'),el('p','',claim.text));
+      if(claim.citations.length){const details=el('details','report-evidence');details.append(el('summary','',`查看原文依据（${claim.citations.length}）`));
+        for(const citation of claim.citations){const source=sources.get(citation.source_id);if(!source)continue;const link=el('a','',`${citation.source_id} · ${source.label} ↗`);link.href=source.url;link.target='_blank';link.rel='noreferrer';details.append(link,el('blockquote','',citation.quote));}paragraph.append(details);}
+      part.append(paragraph);
+    }box.append(part);
+  }
+  box.append(el('p','hint','摘录已与输入文本核对；引用的存在不等于结论已被独立验证，请结合原文判断。'));
+  return box;
+}
+function renderAnalysisPanel(container,info){
+  container.replaceChildren();const job=info.job,running=job&&['queued','running'].includes(job.status),label=info.kind==='explain'?'推荐解读':'单篇精读';
+  if(job){
+    const status=el('div','analysis-status');status.append(el('strong','',job.stage));
+    if(running){const progress=el('progress');progress.max=100;progress.value=job.progress;progress.setAttribute('aria-label',`${label}进度`);status.append(progress,el('span','hint',`${job.progress}% · ${job.model}`));}
+    container.append(status);
+    if(job.status==='failed')container.append(el('p','analysis-error',job.error||'生成未完成，请手动重试。'));
+    if(job.report){
+      if(job.paper_input_hash!==info.inputHash)container.append(el('p','analysis-error','该报告基于较早的论文元数据，请按当前配置重新分析。'));
+      container.append(reportView(job.report));
+    }
+  }else container.append(el('p','hint',info.kind==='explain'?'使用标题、摘要、相近种子和研究画像生成，不能替代全文阅读。':'按需获取官方 HTML 并生成报告；没有可用 HTML 时会说明原因。'));
+  if(!job?.report&&info.savedReport){container.append(el('p','hint','上次成功生成的报告（保留供查阅）'),reportView(info.savedReport));}
+  const controls=el('div','analysis-actions'),button=el('button','primary',running?'正在生成…':job?.status==='failed'?'重试':job?.report?'按当前配置分析':`生成${label}`);
+  button.disabled=running;
+  button.onclick=async()=>{
+    button.disabled=true;button.textContent='正在提交…';
+    try{info.job=await api('/api/analysis/start',{arxiv_id:info.arxivId,kind:info.kind,batch_id:info.batchId||null,retry:job?.status==='failed'});renderAnalysisPanel(container,info);pollAnalysis(container,info);}
+    catch(e){container.append(el('p','analysis-error',e.message));button.disabled=false;button.textContent=`生成${label}`;}
+  };
+  const settings=el('a','', 'Agent 设置 ↗');settings.href='#agent';controls.append(button,settings);if(info.kind==='read'){const records=el('a','','查看精读记录 →');records.href='#readings';controls.append(records);}container.append(controls);
+  container.append(el('p','hint',running?'已加入精读记录，离开页面后任务继续，可稍后查看。':'生成会消耗所选模型通道的用量；相同输入与模型复用缓存。报告内容是模型分析。'));
+}
+function pollAnalysis(container,info){
+  clearTimeout(info.timer);
+  if(!info.job||!['queued','running'].includes(info.job.status))return;
+  info.timer=setTimeout(async()=>{
+    if(!container.isConnected||analysisPanels.get(container)!==info)return;
+    try{info.job=await api('/api/analysis/job?'+new URLSearchParams({job_id:info.job.job_id}));renderAnalysisPanel(container,info);pollAnalysis(container,info);}
+    catch(e){container.append(el('p','analysis-error',e.message+' 可重新打开此论文查看任务状态。'));}
+  },1500);
+}
+async function loadAnalysisPanel(container,arxivId,kind,batchId=null){
+  const old=analysisPanels.get(container);if(old)clearTimeout(old.timer);
+  const info={arxivId,kind,batchId,job:null,inputHash:null,timer:null};analysisPanels.set(container,info);
+  container.replaceChildren(el('p','hint','正在读取已有报告…'));
+  try{const data=await api('/api/analysis/paper?'+new URLSearchParams({arxiv_id:arxivId}));if(analysisPanels.get(container)!==info)return;
+    info.inputHash=data.paper.input_hash;
+    const matching=data.jobs.filter(j=>j.kind===kind);info.job=matching[0]||null;info.savedReport=kind==='read'?data.saved_read?.report:null;
+    renderAnalysisPanel(container,info);pollAnalysis(container,info);
+  }catch(e){container.replaceChildren(el('p','analysis-error',e.message));}
+}
+async function loadPaper(){
+  $('paper-back').textContent=paperFromRecords()?'← 返回精读记录':'← 返回每日推荐';
+  const run=++paperRun;const panel=$('paper-analysis');const old=analysisPanels.get(panel);if(old)clearTimeout(old.timer);analysisPanels.delete(panel);$('paper-arxiv').hidden=true;$('paper-error').textContent='';$('paper-title').textContent='正在读取论文…';$('paper-meta').textContent='';$('paper-abstract-view').replaceChildren();panel.replaceChildren();
+  try{const aid=decodeURIComponent(location.hash.slice('#paper/'.length).split('?')[0]);const data=await api('/api/analysis/paper?'+new URLSearchParams({arxiv_id:aid}));if(run!==paperRun)return;
+    $('paper-title').textContent=data.paper.title;$('paper-meta').textContent=`${data.authors.join(', ')} · ${data.paper.published_at.slice(0,10)} · arXiv:${data.paper.arxiv_id}v${data.paper.version}`;
+    $('paper-abstract-view').replaceChildren(abstractView(data.paper,false,'paper-abstract'));$('paper-arxiv').hidden=false;$('paper-arxiv').href='https://arxiv.org/abs/'+data.paper.arxiv_id;
+    await loadAnalysisPanel(panel,data.paper.arxiv_id,'read');
+  }catch(e){$('paper-title').textContent='论文暂不可用';$('paper-error').textContent=e.message;}
+}
+$('paper-back').onclick=()=>{location.hash=paperFromRecords()||'feed';};
+let readingsRun=0,readingsTimer=null,readingsSearchTimer=null,readingsScroll=0;
+function paperFromRecords(){const from=new URLSearchParams(location.hash.split('?')[1]||'').get('from');return from&&/^readings(?:\?|$)/.test(from)?from:null;}
+function readingParams(){return new URLSearchParams(location.hash.split('?')[1]||'');}
+function readingFilter(page=1){
+  clearTimeout(readingsSearchTimer);
+  const params=new URLSearchParams({q:$('readings-query').value,status:$('readings-status').value,favorites:String($('readings-favorites').checked),page:String(page)});
+  history.replaceState(null,'','#readings?'+params);readingsScroll=0;loadReadings();
+}
+function bookmarkButton(item){
+  const button=el('button','reading-bookmark'+(item.favorite?' selected':''));
+  button.title=item.favorite?'取消收藏':'收藏';button.setAttribute('aria-label',button.title);button.setAttribute('aria-pressed',String(item.favorite));
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');
+  const path=document.createElementNS(svg.namespaceURI,'path');path.setAttribute('d','M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4Z');svg.append(path);button.append(svg);
+  button.onclick=async()=>{button.disabled=true;try{await api('/api/analysis/favorite',{arxiv_id:item.arxiv_id,favorite:!item.favorite});await loadReadings();}catch(e){$('readings-notice').textContent=e.message;button.disabled=false;}};
+  return button;
+}
+function readingRow(item){
+  const row=el('article','reading-row'),body=el('div','reading-row-body');
+  const open=()=>{readingsScroll=window.scrollY;location.hash='paper/'+encodeURIComponent(item.arxiv_id)+'?'+new URLSearchParams({from:location.hash.slice(1)});};
+  const title=el('a','reading-title',item.title);title.href='#paper/'+encodeURIComponent(item.arxiv_id)+'?'+new URLSearchParams({from:location.hash.slice(1)});title.onclick=()=>{readingsScroll=window.scrollY;};
+  const meta=el('div','reading-meta'),labels={queued:'排队中',running:'精读中',succeeded:'已完成',failed:'失败'};
+  meta.append(el('span','reading-state '+item.status,labels[item.status]),el('span','', '· '+new Date(item.updated_at).toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',year:'numeric'})),bookmarkButton(item));
+  body.append(title,meta);
+  if(['queued','running'].includes(item.status)){body.append(el('p','hint',item.stage));const progress=el('progress');progress.max=100;progress.value=item.progress;progress.setAttribute('aria-label','精读进度');body.append(progress);}
+  if(item.status==='failed')body.append(el('p','reading-failure',item.error||'生成未完成'));
+  const button=el('button','outline',item.status==='succeeded'?'查看报告':item.status==='failed'?'查看 / 重试':'查看进度');button.onclick=open;row.append(body,button);return row;
+}
+async function loadReadings(restore=false){
+  clearTimeout(readingsTimer);const run=++readingsRun,params=readingParams();
+  $('readings-query').value=params.get('q')||'';$('readings-status').value=params.get('status')||'all';$('readings-favorites').checked=params.get('favorites')==='true';
+  $('readings-notice').textContent='正在读取精读记录…';
+  try{
+    const data=await api('/api/analysis/records?'+params);
+    if(run!==readingsRun||currentView()!=='readings')return;
+    $('readings-notice').textContent='';$('readings-active-panel').hidden=!data.active.length;$('readings-active-count').textContent=data.active.length;
+    $('readings-active').replaceChildren(...data.active.map(readingRow));
+    $('readings-list').replaceChildren(...data.items.map(readingRow));
+    if(!data.items.length)$('readings-list').append(el('p','empty',params.get('q')||params.get('favorites')==='true'||params.get('status')&&params.get('status')!=='all'?'没有符合条件的历史记录。':'还没有历史报告。从每日推荐进入论文详情，即可发起精读。'));
+    $('readings-page').textContent=`共 ${data.total} 篇 · ${data.page} / ${data.pages} 页`;
+    $('readings-prev').disabled=data.page<=1;$('readings-next').disabled=data.page>=data.pages;
+    $('readings-prev').onclick=()=>readingFilter(data.page-1);$('readings-next').onclick=()=>readingFilter(data.page+1);
+    if(String(data.page)!==(params.get('page')||'1')){params.set('page',data.page);history.replaceState(null,'','#readings?'+params);}
+    if(restore)window.scrollTo(0,readingsScroll);
+    readingsTimer=setTimeout(()=>loadReadings(),data.active.length?2500:15000);
+  }catch(e){if(run===readingsRun&&currentView()==='readings'){$('readings-notice').textContent=e.message;const retry=el('button','outline','重新加载');retry.onclick=()=>loadReadings();$('readings-notice').append(retry);}}
+}
+$('nav-readings').onclick=()=>{location.hash='readings';};
+$('readings-query').oninput=()=>{clearTimeout(readingsTimer);clearTimeout(readingsSearchTimer);++readingsRun;readingsSearchTimer=setTimeout(()=>{if(currentView()==='readings')readingFilter();},300);};
+$('readings-status').onchange=$('readings-favorites').onchange=()=>readingFilter();
+window.addEventListener('hashchange',()=>showView(currentView()));
+showView(currentView());
+</script></body></html>
