@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shsf"
+version = "0.1.0"
+description = "SHSF — Stay Hungry, Stay Foolish. Personal research discovery and reading."
+license = { file = "LICENSE" }
+classifiers = ["License :: OSI Approved :: GNU Affero General Public License v3"]
+requires-python = ">=3.10"
+dependencies = ["defusedxml>=0.7.1,<1", "psycopg[binary]>=3.2,<4", "python-dotenv>=1.0,<2", "PyJWT[crypto]>=2.10,<3", "beautifulsoup4>=4.12,<5"]
+
+[project.optional-dependencies]
+embedding = ["torch>=2.2,<3", "adapters>=1.2,<2"]
+local-postgres = ["pgserver==0.1.4"]
+
+[project.scripts]
+shsf = "shsf.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["shsf*"]
+
+[tool.setuptools.package-data]
+shsf = ["migrations/*.sql", "static/*"]

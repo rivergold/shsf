@@ -1,0 +1,19 @@
+[Unit]
+Description=SHSF daily paper and recommendation update
+After=network-online.target shsf.service
+Wants=network-online.target
+Requires=shsf.service
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Project/shsf
+ExecStart=/home/ubuntu/Project/shsf/.venv/bin/python -m shsf daily-update
+Environment=OMP_NUM_THREADS=2
+Environment=MKL_NUM_THREADS=2
+Environment=HF_HUB_OFFLINE=1
+Environment=TOKENIZERS_PARALLELISM=false
+UMask=0077
+Nice=10
+TimeoutStartSec=3h
+TimeoutStopSec=30s

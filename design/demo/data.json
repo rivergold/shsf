@@ -1,0 +1,430 @@
+{
+  "papers": [
+    {
+      "arxiv_id": "demo-001",
+      "title": "Learning Whole-Body Control from Diverse Human Motions",
+      "abstract": "Demo abstract: a research direction connecting motion imitation, whole-body coordination and robust robot control. This text illustrates the reading workflow rather than describing an actual paper.",
+      "abstract_zh": "演示摘要：围绕运动模仿、全身协调与机器人控制，展示从兴趣论文发现相关研究的阅读流程。本文案为界面示例，不对应真实论文结论。",
+      "authors": [
+        "Demo Research Team"
+      ],
+      "published_at": "2026-10-30",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ]
+    },
+    {
+      "arxiv_id": "demo-002",
+      "title": "Generalist Robot Policies for Contact-Rich Manipulation",
+      "abstract": "Demo abstract: an illustrative research topic on generalist policies and contact-rich manipulation. Recommendation scores and all research descriptions on this page are sample data.",
+      "abstract_zh": "演示摘要：以通用机器人策略与接触丰富的操作任务为例，展示推荐、摘要切换与论文精读。页面上的相似度和研究描述均为示例数据。",
+      "authors": [
+        "Demo Robotics Lab"
+      ],
+      "published_at": "2026-10-29",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ]
+    },
+    {
+      "arxiv_id": "demo-003",
+      "title": "Scaling Visual-Motor Learning with Structured Robot Data",
+      "abstract": "Demo abstract: an illustrative topic on robot data and visual-motor learning, included to show how a reading library can collect papers across related research directions.",
+      "abstract_zh": "演示摘要：以机器人数据和视觉运动学习为主题，展示跨研究方向的论文推荐与历史报告管理。",
+      "authors": [
+        "Demo Learning Group"
+      ],
+      "published_at": "2026-10-28",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ]
+    }
+  ],
+  "feed": {
+    "day": "2026-10-30",
+    "context": {
+      "ready_seeds": 3,
+      "confirmed_seeds": 3,
+      "pending_seeds": 0,
+      "corpus_vectors": 1200,
+      "corpus_papers": 1200,
+      "coverage": 1,
+      "latest_release_day": "2026-10-30",
+      "latest_target": 6,
+      "latest_selected": 3
+    },
+    "batch": {
+      "batch_id": "demo-batch",
+      "context": {
+        "ready_seeds": 3,
+        "confirmed_seeds": 3,
+        "pending_seeds": 0,
+        "corpus_vectors": 1200,
+        "corpus_papers": 1200,
+        "coverage": 1,
+        "latest_release_day": "2026-10-30",
+        "latest_target": 6,
+        "latest_selected": 3
+      },
+      "items": [
+        {
+          "arxiv_id": "demo-001",
+          "title": "Learning Whole-Body Control from Diverse Human Motions",
+          "abstract": "Demo abstract: a research direction connecting motion imitation, whole-body coordination and robust robot control. This text illustrates the reading workflow rather than describing an actual paper.",
+          "abstract_zh": "演示摘要：围绕运动模仿、全身协调与机器人控制，展示从兴趣论文发现相关研究的阅读流程。本文案为界面示例，不对应真实论文结论。",
+          "authors": [
+            "Demo Research Team"
+          ],
+          "published_at": "2026-10-30",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "rank": 1,
+          "similarity": 0.842,
+          "is_latest_release": true,
+          "announcement_day": "2026-10-30",
+          "feedback": {
+            "is_read": false,
+            "interest": "none"
+          },
+          "reasons": [
+            {
+              "title": "Motion Imitation for Humanoid Robots",
+              "similarity": 0.86
+            },
+            {
+              "title": "Learning Robot Skills from Demonstrations",
+              "similarity": 0.82
+            }
+          ]
+        },
+        {
+          "arxiv_id": "demo-002",
+          "title": "Generalist Robot Policies for Contact-Rich Manipulation",
+          "abstract": "Demo abstract: an illustrative research topic on generalist policies and contact-rich manipulation. Recommendation scores and all research descriptions on this page are sample data.",
+          "abstract_zh": "演示摘要：以通用机器人策略与接触丰富的操作任务为例，展示推荐、摘要切换与论文精读。页面上的相似度和研究描述均为示例数据。",
+          "authors": [
+            "Demo Robotics Lab"
+          ],
+          "published_at": "2026-10-29",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "rank": 2,
+          "similarity": 0.7949999999999999,
+          "is_latest_release": true,
+          "announcement_day": "2026-10-30",
+          "feedback": {
+            "is_read": false,
+            "interest": "none"
+          },
+          "reasons": [
+            {
+              "title": "Motion Imitation for Humanoid Robots",
+              "similarity": 0.82
+            },
+            {
+              "title": "Learning Robot Skills from Demonstrations",
+              "similarity": 0.7799999999999999
+            }
+          ]
+        },
+        {
+          "arxiv_id": "demo-003",
+          "title": "Scaling Visual-Motor Learning with Structured Robot Data",
+          "abstract": "Demo abstract: an illustrative topic on robot data and visual-motor learning, included to show how a reading library can collect papers across related research directions.",
+          "abstract_zh": "演示摘要：以机器人数据和视觉运动学习为主题，展示跨研究方向的论文推荐与历史报告管理。",
+          "authors": [
+            "Demo Learning Group"
+          ],
+          "published_at": "2026-10-28",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "rank": 3,
+          "similarity": 0.748,
+          "is_latest_release": true,
+          "announcement_day": "2026-10-30",
+          "feedback": {
+            "is_read": false,
+            "interest": "none"
+          },
+          "reasons": [
+            {
+              "title": "Motion Imitation for Humanoid Robots",
+              "similarity": 0.78
+            },
+            {
+              "title": "Learning Robot Skills from Demonstrations",
+              "similarity": 0.74
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "report": {
+    "title": "从研究问题到复现线索：一份精读报告示意",
+    "metadata": {
+      "basis": "official_html_text",
+      "channel": "api",
+      "model": "演示模型",
+      "version": 1,
+      "generated_at": "2026-10-30T08:00:00Z",
+      "source_blocks": 36,
+      "source_characters": 24000,
+      "chunks": 3
+    },
+    "sources": [],
+    "sections": [
+      {
+        "heading": "核心问题与贡献",
+        "claims": [
+          {
+            "text": "精读从研究问题出发，梳理论文希望解决的瓶颈，以及作者提出的核心贡献。此处是界面演示，不是实际论文分析。",
+            "kind": "inference",
+            "citations": []
+          }
+        ]
+      },
+      {
+        "heading": "方法结构",
+        "claims": [
+          {
+            "text": "正式报告基于官方 arXiv HTML，梳理方法的输入、模块与输出；每条作者陈述都需要可核对的原文依据。",
+            "kind": "inference",
+            "citations": []
+          }
+        ]
+      },
+      {
+        "heading": "训练与推理流程",
+        "claims": [
+          {
+            "text": "长论文先逐段提取证据笔记，再汇总成完整报告。进度和已完成的分段会保存，便于稍后继续查看。",
+            "kind": "inference",
+            "citations": []
+          }
+        ]
+      },
+      {
+        "heading": "实验结果与对比条件",
+        "claims": [
+          {
+            "text": "阅读时需要对照任务设置、比较基线、评估指标与实验条件，资料不足的内容明确标记。",
+            "kind": "unknown",
+            "citations": []
+          }
+        ]
+      },
+      {
+        "heading": "局限与证据缺口",
+        "claims": [
+          {
+            "text": "报告区分作者陈述、分析推断和证据不足。引用能够核对原文，但不代表结论已经独立验证。",
+            "kind": "unknown",
+            "citations": []
+          }
+        ]
+      },
+      {
+        "heading": "对用户研究的价值",
+        "claims": [
+          {
+            "text": "结合个人兴趣论文与研究画像，思考这项工作可能与当前研究方向产生哪些联系。",
+            "kind": "inference",
+            "citations": []
+          }
+        ]
+      },
+      {
+        "heading": "下一步阅读或复现问题",
+        "claims": [
+          {
+            "text": "继续阅读原文与代码，检查复现所需条件，并记录仍未解答的问题。",
+            "kind": "inference",
+            "citations": []
+          }
+        ]
+      }
+    ]
+  },
+  "job": {
+    "job_id": "demo-report",
+    "arxiv_id": "demo-001",
+    "kind": "read",
+    "status": "succeeded",
+    "stage": "已完成",
+    "progress": 100,
+    "model": "演示模型",
+    "paper_input_hash": "demo",
+    "report": {
+      "title": "从研究问题到复现线索：一份精读报告示意",
+      "metadata": {
+        "basis": "official_html_text",
+        "channel": "api",
+        "model": "演示模型",
+        "version": 1,
+        "generated_at": "2026-10-30T08:00:00Z",
+        "source_blocks": 36,
+        "source_characters": 24000,
+        "chunks": 3
+      },
+      "sources": [],
+      "sections": [
+        {
+          "heading": "核心问题与贡献",
+          "claims": [
+            {
+              "text": "精读从研究问题出发，梳理论文希望解决的瓶颈，以及作者提出的核心贡献。此处是界面演示，不是实际论文分析。",
+              "kind": "inference",
+              "citations": []
+            }
+          ]
+        },
+        {
+          "heading": "方法结构",
+          "claims": [
+            {
+              "text": "正式报告基于官方 arXiv HTML，梳理方法的输入、模块与输出；每条作者陈述都需要可核对的原文依据。",
+              "kind": "inference",
+              "citations": []
+            }
+          ]
+        },
+        {
+          "heading": "训练与推理流程",
+          "claims": [
+            {
+              "text": "长论文先逐段提取证据笔记，再汇总成完整报告。进度和已完成的分段会保存，便于稍后继续查看。",
+              "kind": "inference",
+              "citations": []
+            }
+          ]
+        },
+        {
+          "heading": "实验结果与对比条件",
+          "claims": [
+            {
+              "text": "阅读时需要对照任务设置、比较基线、评估指标与实验条件，资料不足的内容明确标记。",
+              "kind": "unknown",
+              "citations": []
+            }
+          ]
+        },
+        {
+          "heading": "局限与证据缺口",
+          "claims": [
+            {
+              "text": "报告区分作者陈述、分析推断和证据不足。引用能够核对原文，但不代表结论已经独立验证。",
+              "kind": "unknown",
+              "citations": []
+            }
+          ]
+        },
+        {
+          "heading": "对用户研究的价值",
+          "claims": [
+            {
+              "text": "结合个人兴趣论文与研究画像，思考这项工作可能与当前研究方向产生哪些联系。",
+              "kind": "inference",
+              "citations": []
+            }
+          ]
+        },
+        {
+          "heading": "下一步阅读或复现问题",
+          "claims": [
+            {
+              "text": "继续阅读原文与代码，检查复现所需条件，并记录仍未解答的问题。",
+              "kind": "inference",
+              "citations": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "records": [
+    {
+      "arxiv_id": "demo-001",
+      "title": "Learning Whole-Body Control from Diverse Human Motions",
+      "status": "succeeded",
+      "stage": "已完成",
+      "progress": 100,
+      "updated_at": "2026-10-30T08:00:00Z",
+      "created_at": "2026-10-30T08:00:00Z",
+      "favorite": true
+    },
+    {
+      "arxiv_id": "demo-002",
+      "title": "Generalist Robot Policies for Contact-Rich Manipulation",
+      "status": "succeeded",
+      "stage": "已完成",
+      "progress": 100,
+      "updated_at": "2026-10-29T08:00:00Z",
+      "created_at": "2026-10-29T08:00:00Z",
+      "favorite": false
+    },
+    {
+      "arxiv_id": "demo-003",
+      "title": "Scaling Visual-Motor Learning with Structured Robot Data",
+      "status": "succeeded",
+      "stage": "已完成",
+      "progress": 100,
+      "updated_at": "2026-10-28T08:00:00Z",
+      "created_at": "2026-10-28T08:00:00Z",
+      "favorite": false
+    }
+  ],
+  "state": {
+    "revision": 1,
+    "confirmed": true,
+    "matched": 2,
+    "pending": 0,
+    "items": [
+      {
+        "arxiv_id": "demo-001",
+        "title": "Learning Whole-Body Control from Diverse Human Motions",
+        "abstract": "Demo abstract: a research direction connecting motion imitation, whole-body coordination and robust robot control. This text illustrates the reading workflow rather than describing an actual paper.",
+        "abstract_zh": "演示摘要：围绕运动模仿、全身协调与机器人控制，展示从兴趣论文发现相关研究的阅读流程。本文案为界面示例，不对应真实论文结论。",
+        "authors": [
+          "Demo Research Team"
+        ],
+        "published_at": "2026-10-30",
+        "categories": [
+          "cs.RO",
+          "cs.LG"
+        ],
+        "seed_id": "seed-0",
+        "published_year": 2026,
+        "match_status": "matched",
+        "sources": []
+      },
+      {
+        "arxiv_id": "demo-002",
+        "title": "Generalist Robot Policies for Contact-Rich Manipulation",
+        "abstract": "Demo abstract: an illustrative research topic on generalist policies and contact-rich manipulation. Recommendation scores and all research descriptions on this page are sample data.",
+        "abstract_zh": "演示摘要：以通用机器人策略与接触丰富的操作任务为例，展示推荐、摘要切换与论文精读。页面上的相似度和研究描述均为示例数据。",
+        "authors": [
+          "Demo Robotics Lab"
+        ],
+        "published_at": "2026-10-29",
+        "categories": [
+          "cs.RO",
+          "cs.AI"
+        ],
+        "seed_id": "seed-1",
+        "published_year": 2026,
+        "match_status": "matched",
+        "sources": []
+      }
+    ]
+  }
+}

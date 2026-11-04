@@ -1,0 +1,13 @@
+[Unit]
+Description=SHSF daily update at 08:00 Shanghai time, with hourly failure retries
+
+[Timer]
+# Start at 08:00 Asia/Shanghai; use the latest available official release.
+# Successful days exit without network work on the remaining retry ticks.
+OnCalendar=*-*-* 08..23:00:00 Asia/Shanghai
+Persistent=true
+AccuracySec=1min
+Unit=shsf-daily-update.service
+
+[Install]
+WantedBy=timers.target

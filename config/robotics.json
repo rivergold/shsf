@@ -1,0 +1,20 @@
+{
+  "name": "robotics-and-embodied-ai",
+  "description": "Bridge foundation models, robot learning, bipedal locomotion, loco-manipulation, whole-body control and scalable robotics infrastructure for autonomous humanoid robots.",
+  "recent_since": "2023-01-01",
+  "historical_since": "2016-01-01",
+  "core_categories": ["cs.RO"],
+  "adjacent_categories": ["cs.LG", "cs.CV", "cs.AI", "eess.SY", "cs.GR", "cs.DC", "cs.OS", "cs.NI", "cs.AR", "cs.SE", "cs.MA", "cs.CL", "stat.ML"],
+  "robot_context": ["robot", "robotics", "robotic", "humanoid", "bipedal", "biped", "locomotion", "manipulation", "embodied", "visuomotor", "ROS 2", "ROS2", "Zenoh"],
+  "topics": [
+    {"id": "whole_body_policy", "priority": 1, "requires_robot_context": true, "terms": ["loco-manipulation", "locomanipulation", "whole-body", "whole body", "mobile manipulation", "coordinated locomotion", "unified policy", "unified policies", "locomotion and manipulation"]},
+    {"id": "humanoid_control", "priority": 2, "requires_robot_context": true, "terms": ["bipedal", "biped", "dynamic balance", "motion tracking", "motion retargeting", "motion imitation", "motion mimicry", "adversarial motion prior", "AMP", "BeyondMimic", "parkour", "agile locomotion", "model predictive control", "contact-rich", "contact rich", "WBC"]},
+    {"id": "embodied_learning", "priority": 2, "requires_robot_context": true, "terms": ["vision-language-action", "vision language action", "VLA", "vision-language navigation", "vision language navigation", "VLN", "diffusion policy", "flow matching", "imitation learning", "reinforcement learning", "sim-to-real", "sim2real", "visuomotor", "action generation", "action chunk", "action alignment", "robot learning", "foundation model"]},
+    {"id": "robotics_systems", "priority": 2, "requires_robot_context": true, "terms": ["runtime", "middleware", "ROS 2", "ROS2", "Zenoh", "real-time", "real time", "scheduling", "computational graph", "distributed communication", "operating system", "inference", "deployment", "cloud-edge", "hardware-software", "agent-native", "latency"]},
+    {"id": "embodied_agents", "priority": 3, "requires_robot_context": true, "terms": ["embodied agent", "task planning", "hierarchical planning", "long-term memory", "tool use", "multi-agent", "autonomous decision", "language model", "multimodal perception", "high-level reasoning"]},
+    {"id": "foundations", "priority": 4, "requires_robot_context": false, "terms": ["proximal policy optimization", "soft actor-critic", "trust region policy optimization", "generative adversarial imitation learning", "denoising diffusion probabilistic models", "flow matching for generative modeling"]}
+  ],
+  "quality_preferences": ["technical novelty", "rigorous experiments", "real-robot validation", "open-source implementation", "practical deployment"],
+  "preferred_venues": ["RSS", "CoRL", "ICRA", "IROS", "NeurIPS", "ICML", "ICLR"],
+  "notes": "Topic matches are lexical recall rules, not semantic recommendations or quality judgements. Venue, citations and code availability are not hard filters. No HTML is required for metadata admission."
+}

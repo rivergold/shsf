@@ -1,0 +1,14 @@
+[Unit]
+Description=SHSF precompute Chinese recommendation abstracts
+After=network-online.target shsf.service
+Wants=network-online.target
+Requires=shsf.service
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Project/shsf
+ExecStart=/home/ubuntu/Project/shsf/.venv/bin/python -m shsf translate-feed
+UMask=0077
+TimeoutStartSec=30min
+TimeoutStopSec=30s

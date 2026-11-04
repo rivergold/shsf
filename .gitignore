@@ -1,0 +1,12 @@
+.data/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+.venv.macos-migrated/
+*.egg-info/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+

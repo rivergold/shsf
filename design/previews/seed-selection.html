@@ -1,0 +1,312 @@
+<div id="shsf-seed-proposal">
+  <div class="viz-carousel" aria-label="每日推荐与种子选择草图" data-previous-label="上一版" data-next-label="下一版">
+    <section data-variant="双栏选种" aria-label="单篇卡片推荐与双栏选种"><div class="sp-app" data-layout="reference" aria-label="双栏选种 布局"></div></section>
+    <section data-variant="列表浏览" aria-label="推荐列表与搜索优先选种" hidden><div class="sp-app" data-layout="search-first" aria-label="列表浏览布局"></div></section>
+  </div>
+  <style>
+    #shsf-seed-proposal .sp-app {
+      --sp-bg: light-dark(#faf7f0, #0c1020);
+      --sp-panel: light-dark(#fffdf9, #131a2b);
+      --sp-subtle: light-dark(#f1ede3, #1b2437);
+      --sp-text: light-dark(#25271f, #edece4);
+      --sp-muted: light-dark(#6b6e61, #a9afbd);
+      --sp-line: light-dark(#deddd1, #30394c);
+      --sp-button: light-dark(#2f3d33, #dbdfce);
+      --sp-onbutton: light-dark(#fffdf8, #18221c);
+      --sp-selected: light-dark(#eef2e9, #202f2c);
+      --sp-positive: light-dark(#3f6246, #b7d5b6);
+      --sp-soft: light-dark(#f4f1e9, #101728);
+      background: var(--sp-bg); color: var(--sp-text);
+      font: 400 14px/1.55 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+      border: 1px solid var(--sp-line); border-radius: 12px; overflow-wrap: anywhere;
+      min-height: 850px; position: relative; box-sizing: border-box;
+    }
+    #shsf-seed-proposal .sp-app *, #shsf-seed-proposal .sp-app *::before, #shsf-seed-proposal .sp-app *::after { box-sizing: border-box; }
+    #shsf-seed-proposal .sp-app [hidden] { display: none !important; }
+    #shsf-seed-proposal .sp-app button, #shsf-seed-proposal .sp-app input, #shsf-seed-proposal .sp-app select { font: inherit; }
+    #shsf-seed-proposal .sp-app button { color: inherit; }
+    #shsf-seed-proposal .sp-top { padding: 19px 30px; display: flex; align-items: center; gap: 30px; border-bottom: 1px solid var(--sp-line); padding-right: 100px; flex-wrap: wrap; }
+    #shsf-seed-proposal .sp-brand { font: 400 31px/1 Georgia, "Times New Roman", serif; letter-spacing: -.8px; white-space: nowrap; }
+    #shsf-seed-proposal .sp-brand span { font-size: 20px; margin-right: 7px; }
+    #shsf-seed-proposal .sp-nav { display: flex; gap: 23px; color: var(--sp-muted); font-size: 12px; align-items: center; flex-wrap: wrap; }
+    #shsf-seed-proposal .sp-nav-active { color: var(--sp-text); font-weight: 500; }
+    #shsf-seed-proposal .sp-main { padding: 29px 30px 22px; }
+    #shsf-seed-proposal .sp-eyebrow { color: var(--sp-muted); font-size: 11px; letter-spacing: .12em; margin-bottom: 8px; }
+    #shsf-seed-proposal .sp-app h2 { font: 400 30px/1.25 Georgia, "Songti SC", serif; margin: 0 0 10px; letter-spacing: -.5px; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-intro { color: var(--sp-muted); margin: 0; max-width: 720px; }
+    #shsf-seed-proposal .sp-intro b { font-weight: 500; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-meta-line { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
+    #shsf-seed-proposal .sp-demo { font-size: 11px; color: var(--sp-muted); background: var(--sp-subtle); padding: 4px 8px; border-radius: 4px; }
+    #shsf-seed-proposal .sp-step { font-size: 11px; color: var(--sp-muted); display: flex; gap: 9px; flex-wrap: wrap; }
+    #shsf-seed-proposal .sp-step strong { font-weight: 500; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-grid { display: grid; grid-template-columns: minmax(0, .83fr) minmax(0, 1.3fr); gap: 20px; margin-top: 23px; align-items: start; }
+    #shsf-seed-proposal [data-layout="search-first"] .sp-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, .82fr); }
+    #shsf-seed-proposal .sp-pane { background: var(--sp-panel); border: 1px solid var(--sp-line); border-radius: 8px; min-width: 0; }
+    #shsf-seed-proposal .sp-pane-head { display: flex; align-items: center; justify-content: space-between; padding: 15px 17px; border-bottom: 1px solid var(--sp-line); gap: 10px; }
+    #shsf-seed-proposal .sp-pane-head h3 { margin: 0; font-size: 14px; font-weight: 500; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-count { font-size: 12px; color: var(--sp-muted); font-variant-numeric: tabular-nums; }
+    #shsf-seed-proposal .sp-selected-body { padding: 0 16px; }
+    #shsf-seed-proposal .sp-picked { padding: 15px 0; border-bottom: 1px solid var(--sp-line); display: grid; grid-template-columns: minmax(0, 1fr) 28px; gap: 8px; }
+    #shsf-seed-proposal .sp-picked:last-child { border-bottom: 0; }
+    #shsf-seed-proposal .sp-picked-title { font-size: 13px; font-weight: 500; }
+    #shsf-seed-proposal .sp-picked-meta { color: var(--sp-muted); font-size: 11px; margin-top: 4px; }
+    #shsf-seed-proposal .sp-remove { background: transparent; border: 0; width: 28px; height: 28px; padding: 0; font-size: 20px; border-radius: 4px; }
+    #shsf-seed-proposal .sp-remove:hover { background: var(--sp-subtle); }
+    #shsf-seed-proposal .sp-note { padding: 13px 16px; color: var(--sp-muted); border-top: 1px solid var(--sp-line); font-size: 12px; }
+    #shsf-seed-proposal .sp-empty { padding: 29px 16px; color: var(--sp-muted); text-align: center; font-size: 13px; }
+    #shsf-seed-proposal .sp-search { padding: 16px 17px 14px; border-bottom: 1px solid var(--sp-line); }
+    #shsf-seed-proposal .sp-modes { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    #shsf-seed-proposal .sp-mode { border: 1px solid transparent; background: transparent; padding: 5px 9px; border-radius: 4px; font-size: 12px; }
+    #shsf-seed-proposal .sp-mode[aria-pressed="true"] { background: var(--sp-subtle); border-color: var(--sp-line); }
+    #shsf-seed-proposal .sp-form-row { display: flex; gap: 8px; }
+    #shsf-seed-proposal .sp-input { min-width: 0; flex: 1; width: 100%; padding: 10px 11px; border: 1px solid var(--sp-line); background: var(--sp-panel); color: var(--sp-text); border-radius: 5px; font-size: 13px; }
+    #shsf-seed-proposal .sp-button { background: var(--sp-panel); color: var(--sp-text); border: 1px solid var(--sp-line); border-radius: 5px; padding: 8px 13px; white-space: nowrap; }
+    #shsf-seed-proposal .sp-primary { background: var(--sp-button); color: var(--sp-onbutton) !important; border-color: var(--sp-button); }
+    #shsf-seed-proposal .sp-button:disabled { opacity: .45; }
+    #shsf-seed-proposal .sp-search-hint { margin-top: 9px; color: var(--sp-muted); font-size: 11px; }
+    #shsf-seed-proposal .sp-results-meta { padding: 11px 17px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--sp-muted); }
+    #shsf-seed-proposal .sp-sort { color: var(--sp-muted); background: var(--sp-panel); border: 1px solid var(--sp-line); border-radius: 4px; padding: 3px 6px; font-size: 11px; max-width: 115px; }
+    #shsf-seed-proposal .sp-result { padding: 14px 17px; border-top: 1px solid var(--sp-line); }
+    #shsf-seed-proposal .sp-result.is-picked { background: var(--sp-selected); }
+    #shsf-seed-proposal .sp-result-heading { display: grid; grid-template-columns: 17px minmax(0, 1fr); gap: 10px; align-items: start; }
+    #shsf-seed-proposal .sp-check { margin: 4px 0 0; width: 16px; height: 16px; accent-color: var(--sp-positive); }
+    #shsf-seed-proposal .sp-paper-title { font-size: 14px; font-weight: 500; }
+    #shsf-seed-proposal .sp-paper-meta { color: var(--sp-muted); font-size: 11px; margin-top: 6px; display: block; }
+    #shsf-seed-proposal .sp-paper-abstract { font-size: 12px; color: var(--sp-muted); margin: 9px 0 0; display: block; }
+    #shsf-seed-proposal .sp-detail { padding-top: 8px; font-size: 11px; color: var(--sp-muted); }
+    #shsf-seed-proposal .sp-detail summary { width: fit-content; }
+    #shsf-seed-proposal .sp-detail p { margin: 7px 0 0; font-size: 12px; }
+    #shsf-seed-proposal .sp-chosen-label { font-size: 11px; color: var(--sp-positive); margin-top: 8px; }
+    #shsf-seed-proposal .sp-pagination { border-top: 1px solid var(--sp-line); padding: 12px 17px; display: flex; justify-content: space-between; align-items: center; gap: 8px; color: var(--sp-muted); font-size: 12px; }
+    #shsf-seed-proposal .sp-pagination .sp-button { padding: 5px 9px; font-size: 12px; }
+    #shsf-seed-proposal .sp-footer { border-top: 1px solid var(--sp-line); margin-top: 22px; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    #shsf-seed-proposal .sp-footer-count { font-size: 14px; }
+    #shsf-seed-proposal .sp-footer-note { font-size: 11px; color: var(--sp-muted); margin-top: 4px; }
+    #shsf-seed-proposal .sp-review { margin-top: 18px; padding: 18px; background: var(--sp-selected); border: 1px solid var(--sp-line); border-radius: 6px; }
+    #shsf-seed-proposal .sp-review h3 { font-size: 15px; margin: 0; font-weight: 500; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-review p { margin: 8px 0 12px; font-size: 13px; color: var(--sp-muted); }
+    #shsf-seed-proposal .sp-review-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    #shsf-seed-proposal .sp-status { min-height: 20px; font-size: 12px; color: var(--sp-positive); margin-top: 13px; }
+    #shsf-seed-proposal .sp-app.is-compact .sp-result { padding-top: 10px; padding-bottom: 10px; }
+    #shsf-seed-proposal .sp-app.no-abstracts .sp-paper-abstract { display: none !important; }
+    #shsf-seed-proposal .sp-nav-button { border: 0; padding: 5px 0; background: transparent; font-size: 12px; color: var(--sp-muted); }
+    #shsf-seed-proposal .sp-nav-button[aria-current="page"] { color: var(--sp-text); box-shadow: 0 1px 0 var(--sp-text); }
+    #shsf-seed-proposal .sp-daily-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin: 21px 0; color: var(--sp-muted); font-size: 12px; }
+    #shsf-seed-proposal .sp-daily-card { background: var(--sp-panel); border: 1px solid var(--sp-line); border-radius: 9px; padding: 25px 28px; }
+    #shsf-seed-proposal .sp-daily-tags { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; font-size: 12px; color: var(--sp-muted); margin-bottom: 15px; }
+    #shsf-seed-proposal .sp-era { background: var(--sp-selected); color: var(--sp-positive); border-radius: 4px; padding: 4px 8px; }
+    #shsf-seed-proposal .sp-daily-card h3 { font: 400 27px/1.3 Georgia, 'Songti SC', serif; margin: 0 0 12px; color: var(--sp-text); max-width: 790px; }
+    #shsf-seed-proposal .sp-reason { padding: 12px 15px; background: var(--sp-soft); border-left: 2px solid var(--sp-line); margin: 20px 0; font-size: 13px; color: var(--sp-muted); }
+    #shsf-seed-proposal .sp-reason b { color: var(--sp-text); font-weight: 500; }
+    #shsf-seed-proposal .sp-daily-abstract { max-width: 790px; margin: 18px 0; font-size: 15px; }
+    #shsf-seed-proposal .sp-daily-expand { border-top: 1px solid var(--sp-line); padding: 13px 0; font-size: 13px; }
+    #shsf-seed-proposal .sp-daily-expand summary { width: fit-content; }
+    #shsf-seed-proposal .sp-daily-expand p { color: var(--sp-muted); margin: 10px 0 0; }
+    #shsf-seed-proposal .sp-daily-expand ul { color: var(--sp-muted); margin: 10px 0 0; padding-left: 20px; }
+    #shsf-seed-proposal .sp-figure-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; border: 1px dashed var(--sp-line); border-radius: 5px; background: var(--sp-soft); margin-top: 12px; color: var(--sp-muted); gap: 5px; font-size: 12px; }
+    #shsf-seed-proposal .sp-daily-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding-top: 17px; border-top: 1px solid var(--sp-line); margin-top: 7px; }
+    #shsf-seed-proposal .sp-daily-actions .sp-action-spacer { flex: 1; }
+    #shsf-seed-proposal .sp-feedback-state { color: var(--sp-positive); font-size: 12px; min-height: 19px; margin-bottom: 8px; }
+    #shsf-seed-proposal .sp-daily-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 17px; }
+    #shsf-seed-proposal .sp-daily-bottom .sp-button { font-size: 12px; }
+    #shsf-seed-proposal .sp-daily-note { font-size: 12px; color: var(--sp-muted); margin: 17px 0 0; }
+    #shsf-seed-proposal .sp-daily-list { background: var(--sp-panel); border: 1px solid var(--sp-line); border-radius: 8px; }
+    #shsf-seed-proposal .sp-daily-row { display: grid; grid-template-columns: 30px minmax(0,1fr) auto; padding: 18px; gap: 14px; border-bottom: 1px solid var(--sp-line); align-items: start; }
+    #shsf-seed-proposal .sp-daily-row:last-child { border-bottom: 0; }
+    #shsf-seed-proposal .sp-row-index { color: var(--sp-muted); font: 400 17px Georgia, serif; padding-top: 3px; }
+    #shsf-seed-proposal .sp-daily-row h3 { font-size: 15px; font-weight: 500; margin: 0 0 7px; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-daily-row .sp-daily-tags { margin-bottom: 8px; font-size: 11px; }
+    #shsf-seed-proposal .sp-daily-row p { font-size: 12px; color: var(--sp-muted); margin: 0; }
+    #shsf-seed-proposal .sp-daily-end { background: var(--sp-panel); border: 1px solid var(--sp-line); border-radius: 8px; padding: 32px 25px; }
+    #shsf-seed-proposal .sp-daily-end h3 { margin: 0 0 10px; font-size: 20px; font-weight: 500; color: var(--sp-text); }
+    #shsf-seed-proposal .sp-daily-end p, #shsf-seed-proposal .sp-daily-end li { font-size: 13px; color: var(--sp-muted); }
+    #shsf-seed-proposal .sp-app.is-compact .sp-daily-card { padding: 18px 21px; }
+    #shsf-seed-proposal .sp-app.is-compact .sp-daily-row { padding: 12px 18px; }
+    #shsf-seed-proposal .sp-app.no-abstracts .sp-daily-abstract { display: none; }
+    #shsf-seed-proposal [data-layout="search-first"] .sp-search-pane { order: 0; }
+    #shsf-seed-proposal [data-layout="search-first"] .sp-selected-pane { order: 1; }
+    @media (max-width: 700px) {
+      #shsf-seed-proposal .sp-app { min-height: 1370px; }
+      #shsf-seed-proposal .sp-main { padding: 22px 17px 18px; }
+      #shsf-seed-proposal .sp-top { padding: 16px 17px; padding-right: 100px; gap: 15px; }
+      #shsf-seed-proposal .sp-nav { gap: 13px; }
+      #shsf-seed-proposal .sp-grid, #shsf-seed-proposal [data-layout="search-first"] .sp-grid { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+      #shsf-seed-proposal .sp-app h2 { font-size: 26px; }
+      #shsf-seed-proposal .sp-app .sp-input { font-size: 16px; }
+      #shsf-seed-proposal .sp-app button { min-height: 36px; }
+      #shsf-seed-proposal .sp-remove { min-height: 36px; width: 32px; }
+      #shsf-seed-proposal .sp-daily-card { padding: 18px; }
+      #shsf-seed-proposal .sp-daily-card h3 { font-size: 23px; }
+      #shsf-seed-proposal .sp-daily-row { grid-template-columns: 22px minmax(0,1fr); padding: 15px; gap: 9px; }
+      #shsf-seed-proposal .sp-daily-row > .sp-button { grid-column: 2; justify-self: start; }
+    }
+    @media (pointer: coarse) {
+      #shsf-seed-proposal .sp-app button, #shsf-seed-proposal .sp-app select { min-height: 44px; }
+      #shsf-seed-proposal .sp-result-heading { min-height: 44px; }
+      #shsf-seed-proposal .sp-check { width: 20px; height: 20px; }
+    }
+  </style>
+  <script>
+    (() => {
+      const root = document.getElementById('shsf-seed-proposal');
+      const papers = [
+        {id:'2303.04137',title:'Diffusion Policy: Visuomotor Policy Learning via Action Diffusion',author:'Cheng Chi et al.',year:2023,category:'cs.RO',keywords:'robot learning diffusion policy 扩散策略 机器人学习 manipulation 模仿学习',abstract:'通过条件扩散过程生成机器人动作序列，在多种视觉操作任务中学习多模态策略。',detail:'关注动作生成、视觉条件与滚动时域控制。这个条目演示标题、作者、年份和摘要的呈现方式。',doi:''},
+        {id:'2406.09246',title:'OpenVLA: An Open-Source Vision-Language-Action Model',author:'Moo Jin Kim et al.',year:2024,category:'cs.RO · cs.LG',keywords:'vla vision language action robot learning 视觉语言动作 具身基础模型 开源',abstract:'将视觉、语言与机器人动作结合，展示通用操作策略与面向新任务的适配方式。',detail:'可作为 VLA 架构、动作对齐和真实机器人部署方向的种子示例。',doi:''},
+        {id:'2410.24164',title:'π₀: A Vision-Language-Action Flow Model for General Robot Control',author:'Physical Intelligence',year:2024,category:'cs.LG · cs.RO',keywords:'pi0 π0 vla flow matching robot policy 流匹配 视觉语言动作 机器人学习',abstract:'使用视觉语言条件与 flow matching 学习动作生成，面向多种机器人和操作任务。',detail:'这个条目用于演示从搜索结果添加新种子，以及切换检索词后保留已选内容。',doi:''},
+        {id:'2610.31608',title:'Humanoid Mobility via Attention-based Contacts',author:'',year:2026,category:'cs.RO',keywords:'humanoid whole body whole-body locomotion contact attention 类人机器人 全身控制 双足 接触',abstract:'围绕接触建模与类人机器人运动展开，可用于预览全身控制方向的选种体验。',detail:'这是近期论文示例。正式版会展示论文库中的原文摘要与作者元数据。',doi:''},
+        {id:'2610.31166',title:'Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation',author:'',year:2026,category:'cs.RO · cs.CV · cs.LG',keywords:'humanoid loco manipulation memory whole body agent 类人机器人 全身控制 运动操作 记忆 具身智能体',abstract:'探讨类人机器人运动操作任务中的历史记忆，可作为跨主题兴趣的选种示例。',detail:'同一篇种子可以同时表达全身策略、运动操作和具身智能体等兴趣，不要求单选主题。',doi:''},
+        {id:'1610.00633',title:'Deep Reinforcement Learning for Robotic Manipulation with Asynchronous Off-Policy Updates',author:'',year:2016,category:'cs.RO · cs.AI · cs.LG',keywords:'asynchronous robot reinforcement learning manipulation system runtime 异步 强化学习 机器人系统 系统架构',abstract:'以异步离策略更新开展机器人操作学习，用于预览系统与学习交叉方向的基础论文。',detail:'历史基础论文也可以加入种子集；年份不会单独决定是否可选。',doi:''},
+        {id:'1610.04286',title:'Sim-to-Real Robot Learning from Pixels with Progressive Nets',author:'',year:2016,category:'cs.RO · cs.LG',keywords:'sim to real progressive nets pixels robot learning 机器人学习 强化学习 仿真到现实',abstract:'如何将从视觉输入学习的机器人策略迁移到真实环境？这篇历史工作围绕 progressive nets 与 Sim-to-Real 展开。',detail:'与仿真到现实、视觉策略和机器人强化学习方向相关。此处为交互草图中的内容概述。',doi:''},
+        {id:'1802.09564',title:'Reinforcement and Imitation Learning for Diverse Visuomotor Skills',author:'',year:2018,category:'cs.RO · cs.AI · cs.LG',keywords:'reinforcement imitation learning visuomotor skills 强化学习 模仿学习 视觉运动技能',abstract:'结合强化学习与模仿学习学习视觉运动技能，作为每日推荐中的历史方法论文示例。',detail:'与你关注的机器人学习、视觉动作策略和可复用训练方法相关。',doi:''}
+      ];
+      papers.forEach(p=>{p.doi='10.48550/arXiv.'+p.id;});
+      const byId = new Map(papers.map(p => [p.id,p]));
+      const configs = {
+        reference:{caption:'YOUR INTERESTS',heading:'构建你的兴趣模型',leftLabel:'你的兴趣论文'},
+        'search-first':{caption:'BUILD YOUR RESEARCH PROFILE',heading:'挑选你想持续关注的论文',leftLabel:'已选种子论文'}
+      };
+      const states = {};
+      const normalize = value => value.toLowerCase().replace(/[‐‑–—_-]/g,' ').replace(/\s+/g,' ').trim();
+      const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const remembered = window.openai && window.openai.widgetState;
+      const initial = remembered && remembered.privateContent && remembered.privateContent.seedPrototype;
+      function persist() {
+        if (!window.openai || !window.openai.setWidgetState) return;
+        const snapshot = {};
+        const choices = {};
+        for (const [name,s] of Object.entries(states)) {
+          snapshot[name] = {selected:[...s.selected],query:s.query,mode:s.mode,sort:s.sort,page:s.page,confirmed:[...s.confirmed],view:s.view,daily:s.daily};
+          choices[name] = {selectedPaperIds:[...s.selected],confirmedPaperIds:[...s.confirmed],dailyFeedback:s.daily.feedback};
+        }
+        window.openai.setWidgetState({modelContent:{seedSelectionPrototype:choices},privateContent:{seedPrototype:snapshot}}).catch(() => {});
+      }
+      function restore(s,saved) {
+        if (!saved || typeof saved !== 'object') return;
+        if (Array.isArray(saved.selected)) s.selected = new Set(saved.selected.filter(id=>byId.has(id)));
+        if (Array.isArray(saved.confirmed)) s.confirmed = new Set(saved.confirmed.filter(id=>byId.has(id)));
+        s.query = typeof saved.query === 'string' ? saved.query.slice(0,200) : '';
+        s.mode = ['all','author','identifier'].includes(saved.mode) ? saved.mode : 'all';
+        s.sort = saved.sort === 'recent' ? 'recent' : 'relevance';
+        s.page = Number.isInteger(saved.page) && saved.page >= 0 ? saved.page : 0;
+        s.view = saved.view === 'seeds' ? 'seeds' : 'daily';
+        if(saved.daily && typeof saved.daily === 'object'){
+          s.daily.index = Number.isInteger(saved.daily.index) && saved.daily.index >= 0 ? saved.daily.index : 0;
+          s.daily.done = saved.daily.done === true;
+          s.daily.focused = saved.daily.focused === true;
+          s.daily.feedback = Object.fromEntries(Object.entries(saved.daily.feedback || {}).filter(([id,value])=>byId.has(id)&&['like','dislike','skip'].includes(value)));
+        }
+      }
+      function filtered(s) {
+        let q = normalize(s.query).replace(/^https?:\/\/(?:export\.)?arxiv\.org\/(?:abs|pdf|html)\//,'').replace(/^https?:\/\/(?:dx\.)?doi\.org\//,'').replace(/^arxiv:/,'').split(/[?#]/)[0].replace(/\.pdf$/,'').replace(/v\d+$/,'');
+        const words = q.split(' ').filter(Boolean);
+        let list = papers.filter(p=>{
+          const haystack = normalize(s.mode === 'author' ? p.author : s.mode === 'identifier' ? p.id+' '+p.doi : p.title+' '+p.abstract+' '+p.keywords);
+          return words.every(w=>haystack.includes(w));
+        });
+        if (s.sort === 'recent') list = [...list].sort((a,b)=>b.year-a.year || b.id.localeCompare(a.id));
+        return list;
+      }
+      function selectedContent(s) {
+        const list = [...s.selected].map(id=>byId.get(id));
+        return list.length ? list.map(p=>`<div class="sp-picked"><div><div class="sp-picked-title">${escape(p.title)}</div><div class="sp-picked-meta">${p.year} · arXiv:${p.id}</div></div><button type="button" class="sp-remove cursor-interaction" data-remove="${p.id}" aria-label="移除 ${escape(p.title)}">×</button></div>`).join('') : '<div class="sp-empty">尚未选择论文<br>从页内搜索结果勾选添加</div>';
+      }
+      function chrome(s){
+        return `<header class="sp-top"><div class="sp-brand"><span aria-hidden="true">✦</span>SHSF</div><nav class="sp-nav" aria-label="页面切换"><button type="button" class="sp-nav-button cursor-interaction" data-view="daily" ${s.view==='daily'?'aria-current="page"':''}>每日推荐</button><button type="button" class="sp-nav-button cursor-interaction" data-view="seeds" ${s.view==='seeds'?'aria-current="page"':''}>兴趣模型</button></nav></header>`;
+      }
+      function bindNavigation(s){
+        s.app.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{s.view=button.dataset.view;s.status='';render(s);persist();}));
+      }
+      const dailyOrder=['1610.04286','2610.31608','1802.09564','2610.31166','1610.00633'];
+      const feedbackLabel={like:'已标记：感兴趣',dislike:'已标记：不感兴趣',skip:'已标记：稍后看'};
+      const reasons={
+        '1610.04286':'与你关注的 Sim-to-Real、视觉策略与机器人强化学习相关。',
+        '2610.31608':'与你关注的类人机器人、接触建模与运动控制相关。',
+        '1802.09564':'与你关注的模仿学习、强化学习和视觉运动策略相关。',
+        '2610.31166':'连接类人机器人运动操作与记忆，覆盖你的跨主题兴趣。',
+        '1610.00633':'连接机器人学习与异步训练，贴近你的系统架构方向。'
+      };
+      function dailyCard(s,p,index,length){
+        const feedback=s.daily.feedback[p.id];
+        return `<article class="sp-daily-card"><div class="sp-daily-tags"><span class="sp-era">${p.year<2026?'历史发现':'近期研究'}</span><span>${p.year}</span><span>${escape(p.category)}</span><span>arXiv:${p.id}</span></div><h3>${escape(p.title)}</h3><div class="sp-reason"><b>为什么推荐</b> · ${escape(reasons[p.id])}</div><p class="sp-daily-abstract">${escape(p.abstract)}</p><details class="sp-daily-expand"><summary class="cursor-interaction">AI 速读</summary><p>内容示例 · 正式版需基于官方 HTML 全文生成。</p><ul><li>研究主题：${escape(p.keywords.split(' ').slice(-3).join(' '))}</li><li>阅读线索：${escape(p.detail)}</li><li>可进一步关注方法假设、实验环境和部署条件。</li></ul></details><details class="sp-daily-expand"><summary class="cursor-interaction">论文图表</summary><div class="sp-figure-placeholder"><span>论文图片与图注位置</span><span>待接入官方 HTML · 非论文原图</span></div></details><div class="sp-feedback-state" aria-live="polite">${feedback?feedbackLabel[feedback]:''}</div><div class="sp-daily-actions"><button type="button" class="sp-button sp-primary cursor-interaction" data-rate="like" data-paper="${p.id}">感兴趣</button><button type="button" class="sp-button cursor-interaction" data-rate="dislike" data-paper="${p.id}">不感兴趣</button><span class="sp-action-spacer"></span><button type="button" class="sp-button cursor-interaction" data-rate="skip" data-paper="${p.id}">稍后看 →</button></div></article><div class="sp-daily-bottom"><button type="button" class="sp-button cursor-interaction" data-daily-step="-1" ${index===0?'disabled':''}>← 上一篇</button><span class="sp-count">${index+1} / ${length} 篇</span><button type="button" class="sp-button cursor-interaction" data-daily-step="1" ${index===length-1?'disabled':''}>下一篇 →</button></div>`;
+      }
+      function renderDaily(s){
+        const list=dailyOrder.filter(id=>!s.selected.has(id)).map(id=>byId.get(id));
+        s.daily.index=Math.min(s.daily.index,Math.max(0,list.length-1));
+        const evaluated=list.filter(p=>s.daily.feedback[p.id]);
+        if(s.daily.done && list.some(p=>!s.daily.feedback[p.id]))s.daily.done=false;
+        const focused=s.name==='reference'||s.daily.focused;
+        const selectedLikes=list.filter(p=>s.daily.feedback[p.id]==='like');
+        let body='';
+        if(s.daily.done||!list.length){
+          body=`<section class="sp-daily-end"><h3>${list.length?'本批示例论文已看完':'暂无其他示例候选'}</h3><p>感兴趣 ${selectedLikes.length} 篇 · 不感兴趣 ${list.filter(p=>s.daily.feedback[p.id]==='dislike').length} 篇 · 稍后看 ${list.filter(p=>s.daily.feedback[p.id]==='skip').length} 篇</p>${selectedLikes.length?'<ul>'+selectedLikes.map(p=>'<li>'+escape(p.title)+'</li>').join('')+'</ul>':''}<div class="sp-review-actions"><button type="button" class="sp-button cursor-interaction" data-daily-review ${!list.length?'disabled':''}>回顾本批论文</button><button type="button" class="sp-button sp-primary cursor-interaction" data-view="seeds">调整兴趣种子</button></div></section>`;
+        }else if(focused){body=dailyCard(s,list[s.daily.index],s.daily.index,list.length);}
+        else{
+          body=`<section class="sp-daily-list">${list.map((p,i)=>`<article class="sp-daily-row"><span class="sp-row-index">${String(i+1).padStart(2,'0')}</span><div><div class="sp-daily-tags"><span class="sp-era">${p.year<2026?'历史发现':'近期研究'}</span><span>${p.year} · ${escape(p.category)}</span></div><h3>${escape(p.title)}</h3><p>${escape(reasons[p.id])}</p>${s.daily.feedback[p.id]?'<div class="sp-chosen-label">'+feedbackLabel[s.daily.feedback[p.id]]+'</div>':''}</div><button type="button" class="sp-button cursor-interaction" data-daily-open="${i}">查看 →</button></article>`).join('')}</section>`;
+        }
+        s.app.innerHTML=chrome(s)+`<main class="sp-main"><div class="sp-eyebrow">DAILY DECK · FOR YOUR RESEARCH</div><h2>今天，读点值得关注的研究</h2><p class="sp-intro">从<b>全部年份的论文</b>中挑选与你兴趣相关的工作，兼顾历史方法与近期进展。</p><div class="sp-meta-line"><span class="sp-count">10 月 24 日 · 每日推荐</span><span class="sp-demo">交互草图 · 示例编排</span></div><div class="sp-daily-top"><span>推荐范围：不限发表年份</span><span>${evaluated.length} / ${list.length} 篇已评价</span>${s.name!=='reference'&&s.daily.focused?'<button type="button" class="sp-button cursor-interaction" data-daily-list>返回本批列表</button>':''}</div>${body}<p class="sp-daily-note">喜欢与不感兴趣用于后续调整推荐；“稍后看”不作为负反馈。已选种子不会重复出现在这批示例中。</p><div class="sp-status" role="status" aria-live="polite">${escape(s.status)}</div></main>`;
+        bindNavigation(s);
+        s.app.querySelectorAll('[data-rate]').forEach(button=>button.addEventListener('click',()=>{
+          s.daily.feedback[button.dataset.paper]=button.dataset.rate;
+          const next=list.findIndex((p,i)=>i>s.daily.index&&!s.daily.feedback[p.id]);
+          const remaining=next>=0?next:list.findIndex(p=>!s.daily.feedback[p.id]);
+          if(remaining<0)s.daily.done=true;else s.daily.index=remaining;
+          s.status=feedbackLabel[button.dataset.rate]+' · 仅演示，未更新真实模型';render(s);persist();
+        }));
+        s.app.querySelectorAll('[data-daily-step]').forEach(button=>button.addEventListener('click',()=>{s.daily.index+=Number(button.dataset.dailyStep);s.status='';render(s);persist();}));
+        s.app.querySelectorAll('[data-daily-open]').forEach(button=>button.addEventListener('click',()=>{s.daily.index=Number(button.dataset.dailyOpen);s.daily.focused=true;s.status='';render(s);persist();}));
+        s.app.querySelector('[data-daily-list]')?.addEventListener('click',()=>{s.daily.focused=false;render(s);persist();});
+        s.app.querySelector('[data-daily-review]')?.addEventListener('click',()=>{s.daily.done=false;s.daily.index=0;s.status='';render(s);persist();});
+      }
+      function render(s) {
+        if(s.view==='daily'){renderDaily(s);return;}
+        const cfg = configs[s.name];
+        const list = filtered(s);
+        const pageCount = Math.max(1,Math.ceil(list.length/3));
+        s.page = Math.min(s.page,pageCount-1);
+        const page = list.slice(s.page*3,s.page*3+3);
+        const selectedHtml = `<section class="sp-pane sp-selected-pane"><div class="sp-pane-head"><h3>${cfg.leftLabel}</h3><span class="sp-count">${s.selected.size} 篇</span></div><div class="sp-selected-body">${selectedContent(s)}</div><div class="sp-note">建议选择 20—40 篇，覆盖你的主要研究方向。</div></section>`;
+        const placeholders = {all:'例如：VLA、全身控制、robot learning',author:'例如：Cheng Chi 或 Kim',identifier:'例如：2303.04137 或 arXiv 链接'};
+        const resultHtml = page.length ? page.map(p=>`<article class="sp-result ${s.selected.has(p.id)?'is-picked':''}"><label class="sp-result-heading"><input type="checkbox" class="sp-check cursor-interaction" data-pick="${p.id}" ${s.selected.has(p.id)?'checked':''} aria-label="选择 ${escape(p.title)}"><span><span class="sp-paper-title">${escape(p.title)}</span><span class="sp-paper-meta" style="display:block">${p.author?escape(p.author)+' · ':''}${p.year} · ${escape(p.category)}</span><span class="sp-paper-abstract" style="display:block">${escape(p.abstract)}</span>${s.selected.has(p.id)?'<span class="sp-chosen-label" style="display:block">已加入兴趣论文</span>':''}</span></label><details class="sp-detail"><summary class="cursor-interaction">查看摘要与条目</summary><p>${escape(p.abstract)} ${escape(p.detail)}</p><p>arXiv:${p.id}</p></details></article>`).join('') : '<div class="sp-empty">没有匹配的示例论文<br>可以试试 VLA、全身控制或 Kim</div>';
+        const searchHtml = `<section class="sp-pane sp-search-pane"><div class="sp-pane-head"><h3>从论文库添加</h3><span class="sp-count">页内搜索</span></div><form class="sp-search"><div class="sp-modes" role="group" aria-label="检索方式">${[['all','标题与摘要'],['author','作者'],['identifier','arXiv / DOI']].map(([key,label])=>`<button type="button" class="sp-mode cursor-interaction" data-mode="${key}" aria-pressed="${s.mode===key}">${label}</button>`).join('')}</div><div class="sp-form-row"><input class="sp-input" aria-label="检索种子论文" placeholder="${placeholders[s.mode]}" value="${escape(s.query)}"><button class="sp-button sp-primary cursor-interaction" type="submit">搜索</button></div><div class="sp-search-hint">勾选即加入；切换关键词后，已选论文仍会保留。</div></form><div class="sp-results-meta"><span aria-live="polite">${s.query?'“'+escape(s.query)+'” · ':''}${list.length} 篇示例结果</span><label><select class="sp-sort cursor-interaction" aria-label="结果排序"><option value="relevance" ${s.sort==='relevance'?'selected':''}>相关性排序</option><option value="recent" ${s.sort==='recent'?'selected':''}>年份从新到旧</option></select></label></div><div class="sp-results">${resultHtml}</div><div class="sp-pagination"><button type="button" class="sp-button cursor-interaction" data-page="-1" ${s.page===0?'disabled':''}>上一页</button><span>${s.page+1} / ${pageCount}</span><button type="button" class="sp-button cursor-interaction" data-page="1" ${s.page>=pageCount-1?'disabled':''}>下一页</button></div></section>`;
+        const unchanged = s.selected.size === s.confirmed.size && [...s.selected].every(id=>s.confirmed.has(id));
+        s.app.innerHTML = `<header class="sp-top"><div class="sp-brand"><span aria-hidden="true">✦</span>SHSF</div><nav class="sp-nav" aria-label="应用结构示意"><span>Daily Deck</span><span>History</span><span class="sp-nav-active">兴趣模型</span></nav></header><main class="sp-main"><div class="sp-eyebrow">${cfg.caption}</div><h2>${cfg.heading}</h2><p class="sp-intro">选择那些你<b>希望在发表当天就读到</b>的论文，让它们代表你的研究兴趣。</p><div class="sp-meta-line"><div class="sp-step"><strong>选择种子论文</strong><span>→</span><span>确认兴趣</span><span>→</span><span>个性化推荐</span></div><span class="sp-demo">交互草图 · 示例数据</span></div><div class="sp-grid">${selectedHtml}${searchHtml}</div><section class="sp-review" ${s.review?'':'hidden'} aria-label="确认种子论文"><h3>确认这 ${s.selected.size} 篇种子论文？</h3><p>你可以随时返回调整。本次只演示确认流程。</p><div class="sp-review-actions"><button type="button" class="sp-button sp-primary cursor-interaction" data-confirm>确认选择</button><button type="button" class="sp-button cursor-interaction" data-cancel>返回调整</button></div></section><footer class="sp-footer"><div><div class="sp-footer-count">已选 <b style="font-weight:500">${s.selected.size}</b> 篇论文</div><div class="sp-footer-note">${unchanged&&s.confirmed.size?'已确认 · 演示状态':'确认前可以继续搜索和调整'}</div></div><button type="button" class="sp-button sp-primary cursor-interaction" data-review ${s.selected.size===0?'disabled':''}>确认种子论文 →</button></footer><div class="sp-status" role="status" aria-live="polite">${escape(s.status)}</div></main>`;
+        s.app.querySelector('header').outerHTML=chrome(s);
+        bindNavigation(s);
+        const runSearch = event => {
+          if(event) event.preventDefault();
+          s.query = s.app.querySelector('.sp-input').value.trim();
+          s.page=0;s.review=false;s.status='';render(s);persist();
+        };
+        const searchButton = s.app.querySelector('button[type="submit"]');
+        searchButton.type = 'button';
+        searchButton.addEventListener('click',runSearch);
+        s.app.querySelector('form').addEventListener('submit',runSearch);
+        s.app.querySelector('.sp-input').addEventListener('keydown',event=>{if(event.key==='Enter')runSearch(event);});
+        s.app.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{s.mode=button.dataset.mode;s.page=0;s.query='';s.review=false;render(s);persist();s.app.querySelector('.sp-input').focus();}));
+        s.app.querySelector('.sp-sort').addEventListener('change',event=>{s.sort=event.target.value;s.page=0;render(s);persist();});
+        s.app.querySelectorAll('[data-pick]').forEach(input=>input.addEventListener('change',()=>{input.checked?s.selected.add(input.dataset.pick):s.selected.delete(input.dataset.pick);s.review=false;s.status=input.checked?'已添加到兴趣论文':'已取消选择';render(s);persist();}));
+        s.app.querySelectorAll('[data-remove]').forEach(button=>button.addEventListener('click',()=>{s.selected.delete(button.dataset.remove);s.review=false;s.status='已移除，可从搜索结果重新添加';render(s);persist();}));
+        s.app.querySelectorAll('[data-page]').forEach(button=>button.addEventListener('click',()=>{s.page+=Number(button.dataset.page);render(s);persist();}));
+        s.app.querySelector('[data-review]').addEventListener('click',()=>{s.review=true;s.status='';render(s);s.app.querySelector('[data-confirm]').focus();});
+        s.app.querySelector('[data-confirm]').addEventListener('click',()=>{s.confirmed=new Set(s.selected);s.review=false;s.status='已确认 '+s.selected.size+' 篇 · 仅演示，尚未写入论文库';render(s);persist();});
+        s.app.querySelector('[data-cancel]').addEventListener('click',()=>{s.review=false;render(s);});
+      }
+      root.querySelectorAll('.sp-app').forEach(app=>{
+        const name=app.dataset.layout;
+        const s={name,app,selected:new Set(['2303.04137','2406.09246']),confirmed:new Set(),query:'',mode:'all',sort:'relevance',page:0,review:false,status:'',view:'daily',daily:{index:0,feedback:{},done:false,focused:false}};
+        restore(s,initial&&initial[name]);states[name]=s;render(s);
+        if(globalThis.Tweak){
+          const visual={compact:false,abstracts:true};
+          const tweak=new Tweak({container:app,onChange:()=>{app.classList.toggle('is-compact',visual.compact);app.classList.toggle('no-abstracts',!visual.abstracts);}});
+          tweak.addToggle(visual,'compact',{label:'紧凑论文卡片'});
+          tweak.addToggle(visual,'abstracts',{label:'展示摘要预览'});
+        }
+      });
+      window.addEventListener('openai:set_globals',event=>{
+        const saved=event.detail&&event.detail.globals&&event.detail.globals.widgetState;
+        const snapshot=saved&&saved.privateContent&&saved.privateContent.seedPrototype;
+        if(snapshot)for(const [name,s]of Object.entries(states)){restore(s,snapshot[name]);render(s);}
+      });
+    })();
+  </script>
+</div>

@@ -1,0 +1,10 @@
+[Unit]
+Description=SHSF fill missing abstract translations in the background
+
+[Timer]
+OnBootSec=30s
+OnUnitInactiveSec=5min
+Unit=shsf-translate-feed.service
+
+[Install]
+WantedBy=timers.target
